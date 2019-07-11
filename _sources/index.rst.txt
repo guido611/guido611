@@ -8,6 +8,13 @@ edaviz: Python Library for Data Exploration and Visualization
 
 .. toctree::
    :maxdepth: 1
+   :caption: Getting Started
+
+   getting_started/overview
+   getting_started/getting_started
+
+.. toctree::
+   :maxdepth: 1
    :caption: Next Level
 
 	01_Next_Level_Shit/exporting_your_results
@@ -31,7 +38,7 @@ Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
+.. * :ref:`modindex`
 * :ref:`search`
 
 .. _GitHub: https://github.com/tkrabel/edaviz
