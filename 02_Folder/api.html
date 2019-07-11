@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; sphinx-test 0.0.1 documentation</title>
+  <title>Before you read the docs &mdash; sphinx-test 0.0.1 documentation</title>
   
 
   
@@ -78,10 +78,15 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul class="simple">
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/getting_started.html">edaviz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/getting_started.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/getting_started.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/getting_started.html#api">API</a></li>
 </ul>
-</div>
+
             
           
         </div>
@@ -125,7 +130,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>Before you read the docs</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -144,55 +149,84 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p># Before you read the docs</p>
-<p>We implemented edaviz in a way so that it is as user-friendly as possible. The best way to learn the api is to call <cite>eda.plot(df)</cite> and click through the tabs. For each module, we display the code that produced the output. Simply copy-paste the code into another Jupyter cell if you want to play around with the functions.</p>
-<p>## edaviz.plot(df, x=None, y=None, target=None)</p>
+  <div class="section" id="before-you-read-the-docs">
+<h1>Before you read the docs<a class="headerlink" href="#before-you-read-the-docs" title="Permalink to this headline">¶</a></h1>
+<p>We implemented edaviz in a way so that it is as user-friendly as possible. The best way to learn the api is to call <code class="docutils literal notranslate"><span class="pre">eda.plot(df)</span></code> and click through the tabs. For each module, we display the code that produced the output. Simply copy-paste the code into another Jupyter cell if you want to play around with the functions.</p>
+<div class="section" id="edaviz-plot-df-x-none-y-none-target-none">
+<h2>edaviz.plot(df, x=None, y=None, target=None)<a class="headerlink" href="#edaviz-plot-df-x-none-y-none-target-none" title="Permalink to this headline">¶</a></h2>
 <p>Shows either an overview of the whole data frame, a univariate or a bivariate plot.</p>
-<p>#### Example</p>
-<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>python
-import edaviz as eda
-df = eda.get_titanic_df()</p>
-<p># overview case
-eda.plot(df)                       # for general overview
-eda.plot(df, target=”Survived”)    # for overview with focus on a target</p>
-<p># univariate summary
-eda.plot(df, “Age”)                # shows a univariate summary of the “Age” column</p>
-<p># bivariate plot
-eda.plot(df, “Sex”, “Survived”)    # shows a bivariate plot of “Survived” against “Sex”
-<a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
-<p>## eda.patterns(df)</p>
-<p>Shows an interactive heatmap comparing all columns with each other. It is like a correlation matrix, but uses a [predictive power score](<a class="reference external" href="https://github.com/tkrabel/edaviz/blob/master/docs/predictive_power_score.md">https://github.com/tkrabel/edaviz/blob/master/docs/predictive_power_score.md</a>) instead.</p>
-<p>#### Example</p>
-<p><a href="#id9"><span class="problematic" id="id10">``</span></a><a href="#id11"><span class="problematic" id="id12">`</span></a>python
-import edaviz as eda
-df = eda.get_titanic_df()</p>
-<p>eda.patterns(df)
-<a href="#id13"><span class="problematic" id="id14">``</span></a><a href="#id15"><span class="problematic" id="id16">`</span></a></p>
-<p>## eda.correlations(df)</p>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">edaviz</span> <span class="kn">as</span> <span class="nn">eda</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">eda</span><span class="o">.</span><span class="n">get_titanic_df</span><span class="p">()</span>
+
+<span class="c1"># overview case</span>
+<span class="n">eda</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>                       <span class="c1"># for general overview</span>
+<span class="n">eda</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;Survived&quot;</span><span class="p">)</span>    <span class="c1"># for overview with focus on a target</span>
+
+<span class="c1"># univariate summary</span>
+<span class="n">eda</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">)</span>                <span class="c1"># shows a univariate summary of the &quot;Age&quot; column</span>
+
+<span class="c1"># bivariate plot</span>
+<span class="n">eda</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;Sex&quot;</span><span class="p">,</span> <span class="s2">&quot;Survived&quot;</span><span class="p">)</span>    <span class="c1"># shows a bivariate plot of &quot;Survived&quot; against &quot;Sex&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="eda-patterns-df">
+<h2>eda.patterns(df)<a class="headerlink" href="#eda-patterns-df" title="Permalink to this headline">¶</a></h2>
+<p>Shows an interactive heatmap comparing all columns with each other. It is like a correlation matrix, but uses a <a class="reference external" href="https://github.com/tkrabel/edaviz/blob/master/docs/predictive_power_score">predictive power score</a> instead.</p>
+<div class="section" id="id1">
+<h3>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">edaviz</span> <span class="kn">as</span> <span class="nn">eda</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">eda</span><span class="o">.</span><span class="n">get_titanic_df</span><span class="p">()</span>
+
+<span class="n">eda</span><span class="o">.</span><span class="n">patterns</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="eda-correlations-df">
+<h2>eda.correlations(df)<a class="headerlink" href="#eda-correlations-df" title="Permalink to this headline">¶</a></h2>
 <p>‘eda.correlations’ shows an interactive correlation matrix. By clicking on an element of the matrix, you can visualize the bivariate relationship between two columns.</p>
-<p>#### Example</p>
-<p><a href="#id17"><span class="problematic" id="id18">``</span></a><a href="#id19"><span class="problematic" id="id20">`</span></a>python
-import edaviz as eda
-df = eda.get_titanic_df()</p>
-<p>eda.correlations(df)
-<a href="#id21"><span class="problematic" id="id22">``</span></a><a href="#id23"><span class="problematic" id="id24">`</span></a></p>
-<p>## eda.predictors(df, target)</p>
+<div class="section" id="id2">
+<h3>Example<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">edaviz</span> <span class="kn">as</span> <span class="nn">eda</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">eda</span><span class="o">.</span><span class="n">get_titanic_df</span><span class="p">()</span>
+
+<span class="n">eda</span><span class="o">.</span><span class="n">correlations</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="eda-predictors-df-target">
+<h2>eda.predictors(df, target)<a class="headerlink" href="#eda-predictors-df-target" title="Permalink to this headline">¶</a></h2>
 <p>This function let’s you inspect the best univariate predictors for a given target variable.</p>
-<p>#### Example</p>
-<p><a href="#id25"><span class="problematic" id="id26">``</span></a><a href="#id27"><span class="problematic" id="id28">`</span></a>python
-import edaviz as eda
-df = eda.get_titanic_df()</p>
-<p>eda.predictors(df, target=”Survived”)
-<a href="#id29"><span class="problematic" id="id30">``</span></a><a href="#id31"><span class="problematic" id="id32">`</span></a></p>
-<p>## eda.columns(df)</p>
-<p><cite>eda.columns()</cite> provides you with a graphical interface that allows you to quickly look at univariate summaries of your columns.
+<div class="section" id="id3">
+<h3>Example<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">edaviz</span> <span class="kn">as</span> <span class="nn">eda</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">eda</span><span class="o">.</span><span class="n">get_titanic_df</span><span class="p">()</span>
+
+<span class="n">eda</span><span class="o">.</span><span class="n">predictors</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;Survived&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="eda-columns-df">
+<h2>eda.columns(df)<a class="headerlink" href="#eda-columns-df" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">eda.columns()</span></code> provides you with a graphical interface that allows you to quickly look at univariate summaries of your columns.
 Since it is a correlation matrix, columns of non-numeric types (such as strings) are excluded from the computation.</p>
-<p>#### Example</p>
-<p><a href="#id33"><span class="problematic" id="id34">``</span></a><a href="#id35"><span class="problematic" id="id36">`</span></a>python
-import edaviz as eda
-df = eda.get_titanic_df()</p>
-<p>eda.columns(df)
-<a href="#id37"><span class="problematic" id="id38">``</span></a><a href="#id39"><span class="problematic" id="id40">`</span></a></p>
+<div class="section" id="id4">
+<h3>Example<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">edaviz</span> <span class="kn">as</span> <span class="nn">eda</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">eda</span><span class="o">.</span><span class="n">get_titanic_df</span><span class="p">()</span>
+
+<span class="n">eda</span><span class="o">.</span><span class="n">columns</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 
 
            </div>

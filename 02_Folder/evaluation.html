@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; sphinx-test 0.0.1 documentation</title>
+  <title>How we evaluated that edaviz makes Data Scientists more than 10x faster &mdash; sphinx-test 0.0.1 documentation</title>
   
 
   
@@ -78,10 +78,15 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul class="simple">
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/getting_started.html">edaviz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/getting_started.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/getting_started.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/getting_started.html#api">API</a></li>
 </ul>
-</div>
+
             
           
         </div>
@@ -125,7 +130,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>How we evaluated that edaviz makes Data Scientists more than 10x faster</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -144,37 +149,55 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p># How we evaluated that edaviz makes Data Scientists more than 10x faster</p>
+  <div class="section" id="how-we-evaluated-that-edaviz-makes-data-scientists-more-than-10x-faster">
+<h1>How we evaluated that edaviz makes Data Scientists more than 10x faster<a class="headerlink" href="#how-we-evaluated-that-edaviz-makes-data-scientists-more-than-10x-faster" title="Permalink to this headline">¶</a></h1>
 <p>As you might know, edaviz started as a research project at the University of Karlsruhe. The goal was to increase the speed of Data Scientists during Exploratory Data Analysis (EDA).</p>
-<p>In order to evaluate the tool in a meaningful way, we asked 20 Data Scientists from 8 companies:
-## What are the most common tasks during data exploration?</p>
-<p>Those are the 5 most common EDA tasks:
-1. How many missing values does the data set contain? In which columns?
-2. Univariate overview of a single column
-3. Visualization of the joint distribution between 2 columns
-4. Which column is a good predictor for a given target?
-5. Between which columns exist predictive patterns?</p>
-<p>So, the direction was clear but the big question was:
-## Is it possible to solve those tasks for various data sets?</p>
-<p>After months of development, we were very excited to test edaviz in a real business environment. The question was the following:
-## How much faster is a professional Data Scientist with edaviz in comparison to his best default tool?</p>
-<p>The evaluation was conducted together with 8 professional Data Scientists from the company STATWORX. And the approach was as follows:
-- They were given 2 different data sets which they had never seen before
-- They were asked to perform the 5 most common EDA tasks listed above
-- For the first data set, they used their best default tool
-- For the second data set, they used edaviz
-- They had never seen edaviz before and received 15 minutes of training on a third data set
-- We measured the duration to create the analysis for each task
-- Of course, we permutated both the data sets and the order in which the tools were used</p>
-<p>Here are the results:
-## On average, the professional Data Scientists performed the 5 most common tasks more than 10x faster with edaviz after 15 minutes of training</p>
+<p>In order to evaluate the tool in a meaningful way, we asked 20 Data Scientists from 8 companies:</p>
+<div class="section" id="what-are-the-most-common-tasks-during-data-exploration">
+<h2>What are the most common tasks during data exploration?<a class="headerlink" href="#what-are-the-most-common-tasks-during-data-exploration" title="Permalink to this headline">¶</a></h2>
+<p>Those are the 5 most common EDA tasks:</p>
+<ol class="simple">
+<li><p>How many missing values does the data set contain? In which columns?</p></li>
+<li><p>Univariate overview of a single column</p></li>
+<li><p>Visualization of the joint distribution between 2 columns</p></li>
+<li><p>Which column is a good predictor for a given target?</p></li>
+<li><p>Between which columns exist predictive patterns?</p></li>
+</ol>
+<p>So, the direction was clear but the big question was:</p>
+</div>
+<div class="section" id="is-it-possible-to-solve-those-tasks-for-various-data-sets">
+<h2>Is it possible to solve those tasks for various data sets?<a class="headerlink" href="#is-it-possible-to-solve-those-tasks-for-various-data-sets" title="Permalink to this headline">¶</a></h2>
+<p>After months of development, we were very excited to test edaviz in a real business environment. The question was the following:</p>
+</div>
+<div class="section" id="how-much-faster-is-a-professional-data-scientist-with-edaviz-in-comparison-to-his-best-default-tool">
+<h2>How much faster is a professional Data Scientist with edaviz in comparison to his best default tool?<a class="headerlink" href="#how-much-faster-is-a-professional-data-scientist-with-edaviz-in-comparison-to-his-best-default-tool" title="Permalink to this headline">¶</a></h2>
+<p>The evaluation was conducted together with 8 professional Data Scientists from the company STATWORX. And the approach was as follows:</p>
+<ul class="simple">
+<li><p>They were given 2 different data sets which they had never seen before</p></li>
+<li><p>They were asked to perform the 5 most common EDA tasks listed above</p></li>
+<li><p>For the first data set, they used their best default tool</p></li>
+<li><p>For the second data set, they used edaviz</p></li>
+<li><p>They had never seen edaviz before and received 15 minutes of training on a third data set</p></li>
+<li><p>We measured the duration to create the analysis for each task</p></li>
+<li><p>Of course, we permutated both the data sets and the order in which the tools were used</p></li>
+</ul>
+<p>Here are the results:</p>
+</div>
+<div class="section" id="on-average-the-professional-data-scientists-performed-the-5-most-common-tasks-more-than-10x-faster-with-edaviz-after-15-minutes-of-training">
+<h2>On average, the professional Data Scientists performed the 5 most common tasks more than 10x faster with edaviz after 15 minutes of training<a class="headerlink" href="#on-average-the-professional-data-scientists-performed-the-5-most-common-tasks-more-than-10x-faster-with-edaviz-after-15-minutes-of-training" title="Permalink to this headline">¶</a></h2>
 <p>All results are summarized in the following graph.</p>
-<p>![alt text](<a class="reference external" href="https://edaviz-assets.s3.eu-central-1.amazonaws.com/edaviz_evaluation_durations.png">https://edaviz-assets.s3.eu-central-1.amazonaws.com/edaviz_evaluation_durations.png</a> “Results of the edaviz performance evaluation”)</p>
+<p><img alt="Results of the edaviz performance evaluation" src="https://edaviz-assets.s3.eu-central-1.amazonaws.com/edaviz_evaluation_durations.png" />alt text</p>
 <p>On the x axis you can see each task. For each task, you can see the distribution of the task durations with and without edaviz. For the tasks 4 and 5, none of the Data Scientists completed the task within 5 minutes (300s) using their best default tool.</p>
-<p>Let’s go through the first result in detail:
-- The median Data Scientist needed 100s to create the analysis for the first task with his best default tool. With edaviz, he needed 2s.</p>
-<p>And now, it is up to you.
-## How fast can you solve the most common EDA tasks? Did you ever measure yourself?</p>
+<p>Let’s go through the first result in detail:</p>
+<ul class="simple">
+<li><p>The median Data Scientist needed 100s to create the analysis for the first task with his best default tool. With edaviz, he needed 2s.</p></li>
+</ul>
+<p>And now, it is up to you.</p>
+</div>
+<div class="section" id="how-fast-can-you-solve-the-most-common-eda-tasks-did-you-ever-measure-yourself">
+<h2>How fast can you solve the most common EDA tasks? Did you ever measure yourself?<a class="headerlink" href="#how-fast-can-you-solve-the-most-common-eda-tasks-did-you-ever-measure-yourself" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
 
 
            </div>

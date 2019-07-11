@@ -17,15 +17,15 @@ edaviz: Python Library for Data Exploration and Visualization
    :maxdepth: 1
    :caption: Next Level
 
-	01_Next_Level_Shit/exporting_your_results
-	01_Next_Level_Shit/predictive_power_score
+   01_Next_Level_Shit/exporting_your_results
+   01_Next_Level_Shit/predictive_power_score
 
 .. toctree::
    :maxdepth: 1
    :caption: Folder
 
-	02_Folder/api
-	02_Folder/evaluation
+   02_Folder/api
+   02_Folder/evaluation
 
 Bug Reports & Questions
 -----------------------

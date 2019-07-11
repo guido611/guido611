@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; sphinx-test 0.0.1 documentation</title>
+  <title>edaviz &mdash; sphinx-test 0.0.1 documentation</title>
   
 
   
@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="How to export your results in Jupyter notebooks with edaviz widgets" href="../01_Next_Level_Shit/exporting_your_results.html" />
     <link rel="prev" title="Overview" href="overview.html" /> 
 </head>
 
@@ -80,8 +81,37 @@
             
             
               <p class="caption"><span class="caption-text">Getting Started</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">edaviz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pip-install">1) pip install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup-jupyter-extensions">2) setup jupyter extensions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#jupyter-notebook">Jupyter Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jupyter-lab">Jupyter Lab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#start-edaviz-in-jupyter">3) start edaviz in Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enter-your-license">4) enter your license</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#api">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#most-important-functions">5 most important functions:</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Next Level</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../01_Next_Level_Shit/exporting_your_results.html">How to export your results in Jupyter notebooks with edaviz widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_Next_Level_Shit/predictive_power_score.html">Introducing the Predictive Power Score (PPS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_Next_Level_Shit/predictive_power_score.html#description">Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_Next_Level_Shit/predictive_power_score.html#usage-and-comparison-to-existing-approaches">Usage and Comparison to existing approaches</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Folder</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../02_Folder/api.html">Before you read the docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_Folder/evaluation.html">How we evaluated that edaviz makes Data Scientists more than 10x faster</a></li>
 </ul>
 
             
@@ -127,7 +157,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>edaviz</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -146,82 +176,114 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p># edaviz
-edaviz - Python library for Exploratory Data Analysis and Visualization in Jupyter Notebook or Jupyter Lab</p>
+  <div class="section" id="edaviz">
+<h1>edaviz<a class="headerlink" href="#edaviz" title="Permalink to this headline">¶</a></h1>
+<p>edaviz - Python library for Exploratory Data Analysis and Visualization in Jupyter Notebook or Jupyter Lab</p>
 <ul class="simple">
-<li><p>[Installation](#page_Installation)</p></li>
-<li><p>[Usage](#page_Usage)</p></li>
-<li><p>[API](#page_API)</p></li>
+<li><p><a class="reference external" href="#page_Installation">Installation</a></p></li>
+<li><p><a class="reference external" href="#page_Usage">Usage</a></p></li>
+<li><p><a class="reference external" href="#page_API">API</a></p></li>
 </ul>
-<p># Installation</p>
-<p>&gt; Currently, we are in private access mode. You will receive the initial <cite>pip install</cite> command and your license directly from us when you have been chosen for early access.</p>
+</div>
+<div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>Currently, we are in private access mode. You will receive the initial <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> command and your license directly from us when you have been chosen for early access.</p>
+</div></blockquote>
 <p>The installation consists of 4 steps:</p>
-<p>## 1) pip install
-From the terminal, you can install edaviz with the pip command that you received from us via mail.</p>
-<p>## 2) setup jupyter extensions
-### Jupyter Notebook
-From the terminal, you need to setup the Jupyter Notebook extensions via the following commands:
-<code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">jupyter</span> <span class="pre">nbextension</span> <span class="pre">enable</span> <span class="pre">--py</span> <span class="pre">widgetsnbextension</span>
-<span class="pre">jupyter</span> <span class="pre">nbextension</span> <span class="pre">enable</span> <span class="pre">--py</span> <span class="pre">qgrid</span>
-<span class="pre">`</span></code>
-If this worked for you, you can __continue with step <a href="#id1"><span class="problematic" id="id2">3__</span></a>.</p>
-<p>### Jupyter Lab
-&gt; Small tip: The setup process with Jupyter Notebook is faster and easier than with Jupyter Lab. Also, JupyterLab 1.0.1 does not work yet, because there are still dependency incompatibilities. However, it works with the latest JupyterLab version before 1.0</p>
+<div class="section" id="pip-install">
+<h2>1) pip install<a class="headerlink" href="#pip-install" title="Permalink to this headline">¶</a></h2>
+<p>From the terminal, you can install edaviz with the pip command that you received from us via mail.</p>
+</div>
+<div class="section" id="setup-jupyter-extensions">
+<h2>2) setup jupyter extensions<a class="headerlink" href="#setup-jupyter-extensions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="jupyter-notebook">
+<h3>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Permalink to this headline">¶</a></h3>
+<p>From the terminal, you need to setup the Jupyter Notebook extensions via the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">nbextension</span> <span class="n">enable</span> <span class="o">--</span><span class="n">py</span> <span class="n">widgetsnbextension</span>
+<span class="n">jupyter</span> <span class="n">nbextension</span> <span class="n">enable</span> <span class="o">--</span><span class="n">py</span> <span class="n">qgrid</span>
+</pre></div>
+</div>
+<p>If this worked for you, you can <strong>continue with step 3</strong>.</p>
+</div>
+<div class="section" id="jupyter-lab">
+<h3>Jupyter Lab<a class="headerlink" href="#jupyter-lab" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Small tip: The setup process with Jupyter Notebook is faster and easier than with Jupyter Lab. Also, JupyterLab 1.0.1 does not work yet, because there are still dependency incompatibilities. However, it works with the latest JupyterLab version before 1.0</p>
+</div></blockquote>
 <p>If you use Jupyter Lab, you need to use the following commands from your terminal. The Jupyter Lab Extension manager will not work because the version numbers cannot be fixed yet.</p>
-<p>&gt; Important: Jupyter Lab extensions require that you have nodejs installed on your computer.
-&lt;a href=”<a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/user/extensions.html">https://jupyterlab.readthedocs.io/en/stable/user/extensions.html</a>” target=”_blank”&gt;Official install guide for Jupyter Lab Extensions&lt;/a&gt;</p>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">jupyter</span> <span class="pre">labextension</span> <span class="pre">install</span> <span class="pre">&#64;jupyter-widgets/jupyterlab-manager&#64;0.38</span> <span class="pre">--no-build</span>
-<span class="pre">jupyter</span> <span class="pre">labextension</span> <span class="pre">install</span> <span class="pre">plotlywidget&#64;0.11.0</span> <span class="pre">--no-build</span>
-<span class="pre">jupyter</span> <span class="pre">labextension</span> <span class="pre">install</span> <span class="pre">&#64;jupyterlab/plotly-extension&#64;0.18.2</span> <span class="pre">--no-build</span>
-<span class="pre">jupyter</span> <span class="pre">labextension</span> <span class="pre">install</span> <span class="pre">qgrid&#64;1.1.1</span> <span class="pre">--no-build</span>
-<span class="pre">jupyter</span> <span class="pre">lab</span> <span class="pre">build</span>
-<span class="pre">`</span></code></p>
-<p>If this worked for you, you can __continue with step <a href="#id1"><span class="problematic" id="id3">3__</span></a>.</p>
+<blockquote>
+<div><p>Important: Jupyter Lab extensions require that you have nodejs installed on your computer.
+<a href="https://jupyterlab.readthedocs.io/en/stable/user/extensions.html" target="_blank">Official install guide for Jupyter Lab Extensions</a></p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">labextension</span> <span class="n">install</span> <span class="nd">@jupyter</span><span class="o">-</span><span class="n">widgets</span><span class="o">/</span><span class="n">jupyterlab</span><span class="o">-</span><span class="n">manager</span><span class="nd">@0</span><span class="o">.</span><span class="mi">38</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">build</span>
+<span class="n">jupyter</span> <span class="n">labextension</span> <span class="n">install</span> <span class="n">plotlywidget</span><span class="nd">@0</span><span class="o">.</span><span class="mf">11.0</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">build</span>
+<span class="n">jupyter</span> <span class="n">labextension</span> <span class="n">install</span> <span class="nd">@jupyterlab</span><span class="o">/</span><span class="n">plotly</span><span class="o">-</span><span class="n">extension</span><span class="nd">@0</span><span class="o">.</span><span class="mf">18.2</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">build</span>
+<span class="n">jupyter</span> <span class="n">labextension</span> <span class="n">install</span> <span class="n">qgrid</span><span class="nd">@1</span><span class="o">.</span><span class="mf">1.1</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">build</span>
+<span class="n">jupyter</span> <span class="n">lab</span> <span class="n">build</span>
+</pre></div>
+</div>
+<p>If this worked for you, you can <strong>continue with step 3</strong>.</p>
 <p>If you have troubles with the correct display of the edaviz widgets, please validate again, that you have the right versions of the pip dependencies installed because some version combinations are incompatible:</p>
-<p>From the terminal, you need to enter: (maybe you use pip3?)
-<code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">pip</span> <span class="pre">install</span> <span class="pre">jupyterlab==0.35.6</span>
-<span class="pre">pip</span> <span class="pre">install</span> <span class="pre">ipywidgets==7.4.2</span>
-<span class="pre">pip</span> <span class="pre">install</span> <span class="pre">plotly==3.10.0</span>
-<span class="pre">`</span></code></p>
-<p>## 3) start edaviz in Jupyter
-From the terminal, start your Jupyter Notebook (or Jupyter Lab):
-<code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">jupyter</span> <span class="pre">notebook</span>
-<span class="pre">`</span></code></p>
-<p>From a Jupyter cell, you need to start edaviz via the following Python code:
-<code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">import</span> <span class="pre">edaviz</span> <span class="pre">as</span> <span class="pre">eda</span>
-<span class="pre">df</span> <span class="pre">=</span> <span class="pre">eda.get_titanic_df()</span>&#160; <span class="pre">#</span> <span class="pre">sample</span> <span class="pre">pandas</span> <span class="pre">dataframe</span>
-<span class="pre">df</span>
-<span class="pre">`</span></code></p>
-<p>## 4) enter your license
-If everything works fine, edaviz asks you for a license.
+<p>From the terminal, you need to enter: (maybe you use pip3?)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">jupyterlab</span><span class="o">==</span><span class="mf">0.35</span><span class="o">.</span><span class="mi">6</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">ipywidgets</span><span class="o">==</span><span class="mf">7.4</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">plotly</span><span class="o">==</span><span class="mf">3.10</span><span class="o">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="start-edaviz-in-jupyter">
+<h2>3) start edaviz in Jupyter<a class="headerlink" href="#start-edaviz-in-jupyter" title="Permalink to this headline">¶</a></h2>
+<p>From the terminal, start your Jupyter Notebook (or Jupyter Lab):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">notebook</span>
+</pre></div>
+</div>
+<p>From a Jupyter cell, you need to start edaviz via the following Python code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">edaviz</span> <span class="k">as</span> <span class="nn">eda</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">eda</span><span class="o">.</span><span class="n">get_titanic_df</span><span class="p">()</span>  <span class="c1"># sample pandas dataframe</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="enter-your-license">
+<h2>4) enter your license<a class="headerlink" href="#enter-your-license" title="Permalink to this headline">¶</a></h2>
+<p>If everything works fine, edaviz asks you for a license.
 Please enter the license key which you received from us.</p>
-<p># Usage</p>
-<p>First, start your Jupyter Notebook from the terminal:
-<code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">jupyter</span> <span class="pre">notebook</span>
-<span class="pre">`</span></code></p>
-<p>Then, execute the following code in a Jupyter cell:
-<code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">import</span> <span class="pre">edaviz</span> <span class="pre">as</span> <span class="pre">eda</span>
-<span class="pre">df</span> <span class="pre">=</span> <span class="pre">eda.get_titanic_df()</span>&#160; <span class="pre">#</span> <span class="pre">sample</span> <span class="pre">pandas</span> <span class="pre">dataframe</span>
-<span class="pre">df</span>
-<span class="pre">`</span></code>
-&gt; Info: edaviz only works within Jupyter Notebook or Jupyter Lab. Currently, you cannot use it on other platforms, e.g. via the command line or in PyCharm etc</p>
-<p># API</p>
-<p>You will be able to discover most of the library functions via the <cite>eda.plot(df)</cite> widget.
-If you want to dig deeper into our docs, you can find them [here](<a class="reference external" href="https://github.com/tkrabel/edaviz/blob/master/docs/api.md">https://github.com/tkrabel/edaviz/blob/master/docs/api.md</a>).</p>
-<p>## 5 most important functions:
-- The best API is no API. Just execute <cite>df</cite> (or the name of your pandas dataframe object) and see what happens. If you imported edaviz, it will add some interactive visualizations to your pandas dataframe
-- <cite>eda.plot(df)</cite> shows an overview widget of a given dataframe. This is the main entry point of the edaviz library
-- <cite>eda.plot(df, x)</cite> shows a suitable univariate summary of a given column, e.g. <cite>eda.plot(df, “Age”)</cite>
-- <cite>eda.plot(df, x, y)</cite> shows a suitable bivariate plot of the two columns, e.g. <cite>eda.plot(df, “Survived”, “Age”)</cite>.
-- <cite>eda.patterns(df)</cite> answers the question: _”between which columns exist predictive patterns?”_</p>
-<p>The big advantage of <cite>eda.plot</cite> is that you do not have to specify the chart type because a best practice visualization is inferred based on the column data types.</p>
+</div>
+</div>
+<div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<p>First, start your Jupyter Notebook from the terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">notebook</span>
+</pre></div>
+</div>
+<p>Then, execute the following code in a Jupyter cell:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">edaviz</span> <span class="k">as</span> <span class="nn">eda</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">eda</span><span class="o">.</span><span class="n">get_titanic_df</span><span class="p">()</span>  <span class="c1"># sample pandas dataframe</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Info: edaviz only works within Jupyter Notebook or Jupyter Lab. Currently, you cannot use it on other platforms, e.g. via the command line or in PyCharm etc</p>
+</div></blockquote>
+</div>
+<div class="section" id="api">
+<h1>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<p>You will be able to discover most of the library functions via the <code class="docutils literal notranslate"><span class="pre">eda.plot(df)</span></code> widget.
+If you want to dig deeper into our docs, you can find them <a class="reference external" href="https://github.com/tkrabel/edaviz/blob/master/docs/api">here</a>.</p>
+<div class="section" id="most-important-functions">
+<h2>5 most important functions:<a class="headerlink" href="#most-important-functions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The best API is no API. Just execute <code class="docutils literal notranslate"><span class="pre">df</span></code> (or the name of your pandas dataframe object) and see what happens. If you imported edaviz, it will add some interactive visualizations to your pandas dataframe</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eda.plot(df)</span></code> shows an overview widget of a given dataframe. This is the main entry point of the edaviz library</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eda.plot(df,</span> <span class="pre">x)</span></code> shows a suitable univariate summary of a given column, e.g. <code class="docutils literal notranslate"><span class="pre">eda.plot(df,</span> <span class="pre">&quot;Age&quot;)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eda.plot(df,</span> <span class="pre">x,</span> <span class="pre">y)</span></code> shows a suitable bivariate plot of the two columns, e.g. <code class="docutils literal notranslate"><span class="pre">eda.plot(df,</span> <span class="pre">&quot;Survived&quot;,</span> <span class="pre">&quot;Age&quot;)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eda.patterns(df)</span></code> answers the question: <em>“between which columns exist predictive patterns?”</em></p></li>
+</ul>
+<p>The big advantage of <code class="docutils literal notranslate"><span class="pre">eda.plot</span></code> is that you do not have to specify the chart type because a best practice visualization is inferred based on the column data types.</p>
+</div>
+</div>
 
 
            </div>
@@ -230,6 +292,8 @@ If you want to dig deeper into our docs, you can find them [here](<a class="refe
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../01_Next_Level_Shit/exporting_your_results.html" class="btn btn-neutral float-right" title="How to export your results in Jupyter notebooks with edaviz widgets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
