@@ -1,6 +1,0 @@
-altair.selection\_single
-========================
-
-.. currentmodule:: altair
-
-.. autofunction:: selection_single
