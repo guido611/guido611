@@ -7,10 +7,25 @@ edaviz: Python Library for Data Exploration and Visualization
 =============================================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
+   :caption: Next Level
 
+01_Next_Level_Shit/exporting_your_results
+01_Next_Level_Shit/predictive_power_score
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Folder
+
+02_Folder/api
+02_Folder/evaluation
+
+Bug Reports & Questions
+-----------------------
+
+`GitHub`_. If any
+questions or issues come up as you use edaviz, please get in touch via
+`Git Issues`_ or our `Twitter`_.
 
 Indices and tables
 ==================
@@ -18,3 +33,7 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+.. _GitHub: https://github.com/tkrabel/edaviz
+.. _Git Issues: https://github.com/tkrabel/edaviz/issues
+.. _Twitter: https://twitter.com/edavizpy
