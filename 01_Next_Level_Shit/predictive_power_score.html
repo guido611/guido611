@@ -1,0 +1,217 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; sphinx-test 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> sphinx-test
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sphinx-test</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/01_Next_Level_Shit/predictive_power_score.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>## Introducing the Predictive Power Score (PPS)</p>
+<p>&gt; Stop searching for correlation and start searching for predictive power!</p>
+<p>The PPS answers the following question: _How well can a given column predict another column?_
+- It replaces a variety of methods for finding predictive power like correlation, ANOVA or Cramer’s V.
+- Also, it is faster than wrapper methods like fitting a Random Forest and inspecting feature importances.</p>
+<p>__The advantages in a nutshell:__
+- The PPS is __suitable__ because it can find both linear and non-linear patterns (correlation can only find linear patterns)
+- The PPS is __flexible__ because it can be applied to both numeric and categoric columns (you don’t need to choose from various methods like correlation, ANOVA, Cramer’s V etc because the predictive power score can handle all those cases)
+- The PPS is __faster__ than fitting a model (e.g. a Random Forest or SVM)
+- The PPS is __convenient__ because you don’t need to transform your columns (e.g. most models require some transformation)</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">pip</span> <span class="pre">install</span> <span class="pre">nbconvert==5.5.0</span>
+<span class="pre">`</span></code></p>
+<p>## Description
+The predictive power score can be described as follows:</p>
+<ol class="arabic simple" start="0">
+<li><p>The score is calculated between 2 columns: a feature column and a target column. The score measures how well the feature column can predict the target column.</p></li>
+<li><p>The score always ranges from 0 to 1 and the score is defined for both numeric and categoric variables.</p></li>
+<li><p>If the score is 0, the feature is not better than a naive predictor, e.g. the naive predictor might always predict the most common value of the target, or the median of the target.</p></li>
+<li><p>If the score is 1, the feature can perfectly predict the target.</p></li>
+<li><p>Most of the times, the score is between 0 and 1. The score that is reported is generalized based on a similar method to crossvalidation. So, the score is tested out-of-sample and not in-sample.</p></li>
+<li><p>The score is based on a specific learning algorithm which can detect nonlinear patterns. If you cannot reproduce the predictive power of a feature in one of your own models (e.g. a linear regression), then maybe your model is not suitable enough for the problem or cannot model non-linear relationships.</p></li>
+</ol>
+<p>## Usage and Comparison to existing approaches
+The predictive power score can be used for several use cases. The most common use cases are __Feature <a href="#id1"><span class="problematic" id="id2">Selection__</span></a> and __Finding <a href="#id1"><span class="problematic" id="id3">Patterns__</span></a>.</p>
+<ul class="simple">
+<li><p>Feature Selection: a typical application scenario is to find the best univariate predictors/features for a given target. Is is especially useful if you have many potential features e.g. when you auto-generate features with tsfresh and featurelabs or when you try to find predictive patterns in external data. The score is faster than fitting a classical model like a Random forest. Also, it does not have many of the problems of feature importances.</p></li>
+<li><p>Finding Patterns: another scenario is to find predictive patterns between variables via calculating all pairwise predictive power scores as a patterns matrix. The patterns matrix is better than a correlation matrix because the correlation score is symmetric and cannot find nonlinear patterns. You might find some surprises, if you have a look at the patterns matrix of the Titanic data set.</p></li>
+</ul>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Guido Drechsel
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

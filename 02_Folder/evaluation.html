@@ -1,0 +1,219 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; sphinx-test 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> sphinx-test
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sphinx-test</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/02_Folder/evaluation.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p># How we evaluated that edaviz makes Data Scientists more than 10x faster</p>
+<p>As you might know, edaviz started as a research project at the University of Karlsruhe. The goal was to increase the speed of Data Scientists during Exploratory Data Analysis (EDA).</p>
+<p>In order to evaluate the tool in a meaningful way, we asked 20 Data Scientists from 8 companies:
+## What are the most common tasks during data exploration?</p>
+<p>Those are the 5 most common EDA tasks:
+1. How many missing values does the data set contain? In which columns?
+2. Univariate overview of a single column
+3. Visualization of the joint distribution between 2 columns
+4. Which column is a good predictor for a given target?
+5. Between which columns exist predictive patterns?</p>
+<p>So, the direction was clear but the big question was:
+## Is it possible to solve those tasks for various data sets?</p>
+<p>After months of development, we were very excited to test edaviz in a real business environment. The question was the following:
+## How much faster is a professional Data Scientist with edaviz in comparison to his best default tool?</p>
+<p>The evaluation was conducted together with 8 professional Data Scientists from the company STATWORX. And the approach was as follows:
+- They were given 2 different data sets which they had never seen before
+- They were asked to perform the 5 most common EDA tasks listed above
+- For the first data set, they used their best default tool
+- For the second data set, they used edaviz
+- They had never seen edaviz before and received 15 minutes of training on a third data set
+- We measured the duration to create the analysis for each task
+- Of course, we permutated both the data sets and the order in which the tools were used</p>
+<p>Here are the results:
+## On average, the professional Data Scientists performed the 5 most common tasks more than 10x faster with edaviz after 15 minutes of training</p>
+<p>All results are summarized in the following graph.</p>
+<p>![alt text](<a class="reference external" href="https://edaviz-assets.s3.eu-central-1.amazonaws.com/edaviz_evaluation_durations.png">https://edaviz-assets.s3.eu-central-1.amazonaws.com/edaviz_evaluation_durations.png</a> “Results of the edaviz performance evaluation”)</p>
+<p>On the x axis you can see each task. For each task, you can see the distribution of the task durations with and without edaviz. For the tasks 4 and 5, none of the Data Scientists completed the task within 5 minutes (300s) using their best default tool.</p>
+<p>Let’s go through the first result in detail:
+- The median Data Scientist needed 100s to create the analysis for the first task with his best default tool. With edaviz, he needed 2s.</p>
+<p>And now, it is up to you.
+## How fast can you solve the most common EDA tasks? Did you ever measure yourself?</p>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Guido Drechsel
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
