@@ -1,0 +1,437 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Customizing Visualizations &mdash; sphinx-test 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Times and Dates in Altair" href="times_and_dates.html" />
+    <link rel="prev" title="Saving Altair Charts" href="saving_charts.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> sphinx-test
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Example Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="data.html">Specifying Data in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoding.html">Encodings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="marks.html">Marks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform.html">Data Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Top-Level Chart Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="saving_charts.html">Saving Altair Charts</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Customizing Visualizations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#global-config-vs-local-config-vs-encoding">Global Config vs. Local Config vs. Encoding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#global-config">Global Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#local-config">Local Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#encoding">Encoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#which-to-use">Which to Use?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#adjusting-axis-limits">Adjusting Axis Limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adjusting-axis-labels">Adjusting Axis Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adjusting-the-legend">Adjusting the Legend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#removing-the-chart-border">Removing the Chart Border</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#customizing-colors">Customizing Colors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#color-schemes">Color Schemes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#color-domain-and-range">Color Domain and Range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#raw-color-values">Raw Color Values</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#adjusting-the-width-of-bar-marks">Adjusting the width of Bar Marks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="times_and_dates.html">Times and Dates in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Display Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="renderers.html">Altair Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals.html">Altair Internals: Understanding the Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecosystem.html">Altair Ecosystem</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Case Studies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display_frontends.html">Displaying Charts in Various Frontends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_renderers.html">Customizing Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_transformers.html">Data transformers</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sphinx-test</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Customizing Visualizations</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/user_guide/customization.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="customizing-visualizations">
+<span id="user-guide-customization"></span><h1>Customizing Visualizations<a class="headerlink" href="#customizing-visualizations" title="Permalink to this headline">¶</a></h1>
+<p>Altair’s goal is to automatically choose useful plot settings and configurations
+so that the user is free to think about the data rather than the mechanics
+of plotting. That said, once you have a useful visualization, you will often
+want to adjust certain aspects of it. This section of the documentation
+outlines some of the ways to make these adjustments.</p>
+<div class="section" id="global-config-vs-local-config-vs-encoding">
+<h2>Global Config vs. Local Config vs. Encoding<a class="headerlink" href="#global-config-vs-local-config-vs-encoding" title="Permalink to this headline">¶</a></h2>
+<p>There are often two or three different ways to specify the look of your plots
+depending on the situation.
+For example, suppose we are creating a scatter plot of the <code class="docutils literal notranslate"><span class="pre">cars</span></code> dataset:</p>
+<p>Suppose you wish to change the color of the points to red, and the opacity
+of the points to 20%. There are three possible approaches to these:</p>
+<div class="section" id="global-config">
+<h3>Global Config<a class="headerlink" href="#global-config" title="Permalink to this headline">¶</a></h3>
+<p><em>See :ref:`user-guide-configuration` for a full
+discussion of global configuration options</em></p>
+<p>First, every chart type has a <code class="docutils literal notranslate"><span class="pre">&quot;config&quot;</span></code> property at the top level that acts
+as a sort of theme for the whole chart and all of its sub-charts.
+Here you can specify things like axes properties, mark properties, selection
+properties, and more.</p>
+<p>Altair allows you to access these through the <code class="docutils literal notranslate"><span class="pre">configure_*</span></code> methods of the
+chart. Here we will use the <code class="xref py py-meth docutils literal notranslate"><span class="pre">configure_mark()</span></code> property:</p>
+<p>There are a couple things to be aware of when using this kind of global configuration:</p>
+<ol class="arabic simple">
+<li><p>By design configurations will affect <em>every mark</em> used within the chart</p></li>
+<li><p>The global configuration is only permissible at the top-level; so, for example,
+if you tried to layer the above chart with another, it would result in an error.</p></li>
+</ol>
+<p>For more information on top-level configurations, see <a class="reference internal" href="configuration.html#user-guide-configuration"><span class="std std-ref">Top-Level Chart Configuration</span></a>.</p>
+</div>
+<div class="section" id="local-config">
+<h3>Local Config<a class="headerlink" href="#local-config" title="Permalink to this headline">¶</a></h3>
+<p>If you would like to configure the look of the mark locally, such that the setting
+only affects the particular chart property you reference, this can be done via a
+local configuration setting.</p>
+<p>In the case of mark properties, the best approach is to set the property as an
+argument to the <code class="docutils literal notranslate"><span class="pre">mark_*</span></code> method. Here we will use <code class="xref py py-meth docutils literal notranslate"><span class="pre">mark_point()</span></code>:</p>
+<p>Unlike when using the global configuration, here it is possible to use the resulting
+chart as a layer or facet in a compound chart.</p>
+<p>Local config settings like this one will always override global settings.</p>
+</div>
+<div class="section" id="encoding">
+<h3>Encoding<a class="headerlink" href="#encoding" title="Permalink to this headline">¶</a></h3>
+<p>Finally, it is possible to set chart properties via the encoding channel
+(see <a class="reference internal" href="encoding.html#user-guide-encoding"><span class="std std-ref">Encodings</span></a>). Rather than mapping a property to a data column,
+you can map a property directly to a value using the <code class="xref py py-func docutils literal notranslate"><span class="pre">value()</span></code> function:</p>
+<p>Note that only a limited set of mark properties can be bound to encodings, so
+for some (e.g. <code class="docutils literal notranslate"><span class="pre">fillOpacity</span></code>, <code class="docutils literal notranslate"><span class="pre">strokeOpacity</span></code>, etc.) the encoding approach
+is not available.</p>
+<p>Encoding settings will always override local or global configuration settings.</p>
+</div>
+<div class="section" id="which-to-use">
+<h3>Which to Use?<a class="headerlink" href="#which-to-use" title="Permalink to this headline">¶</a></h3>
+<p>The precedence order for the three approaches is (from lowest to highest)
+<em>global config</em>, <em>local config</em>, <em>encoding</em>. That is, if a chart property is
+set both globally and locally, the local setting will win-out. If a property
+is set both via a configuration and an encoding, the encoding will win-out.</p>
+<p>In most usage, we recommend always using the highest-precedence means of
+setting properties; i.e. an encoding, or a local configuration for properties
+that are not tied to an encoding.
+Global configurations should be reserved for creating themes that are applied
+just before the chart is rendered.</p>
+</div>
+</div>
+<div class="section" id="adjusting-axis-limits">
+<h2>Adjusting Axis Limits<a class="headerlink" href="#adjusting-axis-limits" title="Permalink to this headline">¶</a></h2>
+<p>The default axis limit used by Altair is dependent on the type of the data
+(see, for example, <a class="reference internal" href="encoding.html#type-axis-scale"><span class="std std-ref">Effect of Data Type on Axis Scales</span></a>). To fine-tune the axis limits
+beyond these defaults, you can use the <code class="xref py py-class docutils literal notranslate"><span class="pre">Scale</span></code> property of the axis
+encodings. For example, consider the following plot:</p>
+<p>Altair inherits from Vega-Lite the convention of always including the zero-point
+in quantitative axes; if you would like to turn this off, you can add a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Scale</span></code> property to the <code class="xref py py-class docutils literal notranslate"><span class="pre">X</span></code> encoding that specifies <code class="docutils literal notranslate"><span class="pre">zero=False</span></code>:</p>
+<p>To specify exact axis limits, you can use the <code class="docutils literal notranslate"><span class="pre">domain</span></code> property of the scale:</p>
+<p>The problem is that the data still exists beyond the scale, and we need to tell
+Altair what to do with this data. One option is to “clip” the data by setting
+the <code class="docutils literal notranslate"><span class="pre">&quot;clip&quot;</span></code> property of the mark to True:</p>
+<p>Another option is to “clamp” the data; that is, to move points beyond the
+limit to the edge of the domain:</p>
+<p>For interactive charts like the one above, the clamping happens dynamically,
+which can be useful for keeping in mind outliers as you pan and zoom on the
+chart.</p>
+</div>
+<div class="section" id="adjusting-axis-labels">
+<h2>Adjusting Axis Labels<a class="headerlink" href="#adjusting-axis-labels" title="Permalink to this headline">¶</a></h2>
+<p>Altair also gives you tool to easily configure the appearance of axis labels.
+For example consider this plot:</p>
+<p>To fine-tune the formatting of the tick labels and to add a custom title to
+each axis, we can pass to the <code class="xref py py-class docutils literal notranslate"><span class="pre">X</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">Y</span></code> encoding a custom
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Axis</span></code> definition.
+Here is an example of formatting the x labels as a percentage, and
+the y labels as a dollar value:</p>
+<p>Additional formatting codes are available; for a listing of these see the
+<a class="reference external" href="https://github.com/d3/d3-format/blob/master/README.md#format">d3 Format Code Documentation</a>.</p>
+</div>
+<div class="section" id="adjusting-the-legend">
+<h2>Adjusting the Legend<a class="headerlink" href="#adjusting-the-legend" title="Permalink to this headline">¶</a></h2>
+<p>A legend is added to the chart automatically when the <cite>color</cite>, <cite>shape</cite> or <cite>size</cite> arguments are passed to the <code class="xref py py-func docutils literal notranslate"><span class="pre">encode()</span></code> function. In this example we’ll use <cite>color</cite>.</p>
+<p>In this case, the legend can be customized by introducing the <code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code> class and taking advantage of its <cite>legend</cite> argument. The <cite>shape</cite> and <cite>size</cite> arguments have their own corresponding classes.</p>
+<p>The legend option on all of them expects a <code class="xref py py-class docutils literal notranslate"><span class="pre">Legend</span></code> object as its input, which accepts arguments to customize many aspects of its appearance. One simple example is giving the legend a <cite>title</cite>.</p>
+<p>Another thing you can do is move the legend to another position with the <cite>orient</cite> argument.</p>
+<p>You can remove the legend entirely by submitting a null value.</p>
+</div>
+<div class="section" id="removing-the-chart-border">
+<h2>Removing the Chart Border<a class="headerlink" href="#removing-the-chart-border" title="Permalink to this headline">¶</a></h2>
+<p>Basic Altair charts are drawn with both a grid and an outside border.
+To create a chart with no border, you will need to remove them both.</p>
+<p>As an example, let’s start with a simple scatter plot.</p>
+<p>First remove the grid using the <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_axis()</span></code> method.</p>
+<p>You’ll note that while the inside rules are gone, the outside border remains.
+Hide it by setting the <cite>strokeWidth</cite> or the <cite>strokeOpacity</cite> options on
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_view()</span></code> to <cite>0</cite>:</p>
+<p>It is also possible to completely remove all borders and axes by
+combining the above option with setting <cite>axis</cite> to <cite>None</cite> during encoding.</p>
+<p>..altair-plot:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">vega_datasets</span> <span class="k">import</span> <span class="n">data</span>
+
+<span class="n">iris</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iris</span><span class="p">()</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;petalWidth&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;petalLength&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;species&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_axis</span><span class="p">(</span>
+    <span class="n">grid</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span><span class="o">.</span><span class="n">configure_view</span><span class="p">(</span>
+    <span class="n">strokeWidth</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="customizing-colors">
+<h2>Customizing Colors<a class="headerlink" href="#customizing-colors" title="Permalink to this headline">¶</a></h2>
+<p>As discussed in <a class="reference internal" href="encoding.html#type-legend-scale"><span class="std std-ref">Effect of Data Type on Color Scales</span></a>, Altair chooses a suitable default color
+scheme based on the type of the data that the color encodes. These defaults can
+be customized using the <cite>scale</cite> argument of the <code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code> class.</p>
+<p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">Scale</span></code> class passed to the <cite>scale</cite> argument provides a number of options
+for customizing the color scale; we will discuss a few of them here.</p>
+<div class="section" id="color-schemes">
+<h3>Color Schemes<a class="headerlink" href="#color-schemes" title="Permalink to this headline">¶</a></h3>
+<p>Altair  includes a set of named color schemes for both categorical and sequential
+data, defined by the vega project; see the
+<a class="reference external" href="https://vega.github.io/vega/docs/schemes/">Vega documentation</a>
+for a full gallery of available color schemes.  These schemes
+can be passed to the <cite>scheme</cite> argument of the <code class="xref py py-class docutils literal notranslate"><span class="pre">Scale</span></code> class:</p>
+</div>
+<div class="section" id="color-domain-and-range">
+<h3>Color Domain and Range<a class="headerlink" href="#color-domain-and-range" title="Permalink to this headline">¶</a></h3>
+<p>To make a custom mapping of discrete values to colors, use the
+<cite>domain</cite> and <cite>range</cite> paramaters of the <code class="xref py py-class docutils literal notranslate"><span class="pre">Scale</span></code> class for
+values and colors respectively.</p>
+</div>
+<div class="section" id="raw-color-values">
+<h3>Raw Color Values<a class="headerlink" href="#raw-color-values" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">scale</span></code> is what maps the raw input values into an appropriate color encoding
+for displaying the data. If your data entries consist of raw color names or codes,
+you can set <code class="docutils literal notranslate"><span class="pre">scale=None</span></code> to use those colors directly:</p>
+</div>
+</div>
+<div class="section" id="adjusting-the-width-of-bar-marks">
+<h2>Adjusting the width of Bar Marks<a class="headerlink" href="#adjusting-the-width-of-bar-marks" title="Permalink to this headline">¶</a></h2>
+<p>The width of the bars in a bar plot are controlled through the <code class="docutils literal notranslate"><span class="pre">size</span></code> property in the <code class="xref py py-meth docutils literal notranslate"><span class="pre">mark_bar()</span></code>:</p>
+<p>But since <code class="docutils literal notranslate"><span class="pre">mark_bar(size=10)</span></code> only controls the width of the bars, it might become possible that the width of the chart is not adjusted accordingly:</p>
+<p>The width of the chart containing the bar plot can be controlled through two mechanisms:</p>
+<ol class="arabic simple">
+<li><p>Setting the <code class="docutils literal notranslate"><span class="pre">width</span></code> of chart, so the width of the bars are adjusted to fit the width of the chart.</p></li>
+<li><p>Setting the <code class="docutils literal notranslate"><span class="pre">rangeStep</span></code> property of the bars in the <code class="xref py py-class docutils literal notranslate"><span class="pre">Scale</span></code> class. The <code class="docutils literal notranslate"><span class="pre">rangeStep</span></code> allocates the width (in pixels) for each bar, so the width of the chart becomes the number of bars multiply the <code class="docutils literal notranslate"><span class="pre">rangeStep</span></code>.</p></li>
+</ol>
+<p>An example using the first mechanism (using <code class="docutils literal notranslate"><span class="pre">width</span></code>):</p>
+<p>The width of the bars are set using <code class="docutils literal notranslate"><span class="pre">mark_bar(size=30)</span></code> and the width of the chart is set using <code class="docutils literal notranslate"><span class="pre">properties(width=100)</span></code></p>
+<p>An example using the second mechanism (using <code class="docutils literal notranslate"><span class="pre">rangeStep</span></code>):</p>
+<p>The width of the bars are set using <code class="docutils literal notranslate"><span class="pre">mark_bar(size=30)</span></code> and the width that is allocated for each bar bar in the the chart is set using <code class="docutils literal notranslate"><span class="pre">alt.Scale(rangeStep=100)</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If both <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">rangeStep</span></code> are specified, then <code class="docutils literal notranslate"><span class="pre">rangeStep</span></code> will be ignored.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="times_and_dates.html" class="btn btn-neutral float-right" title="Times and Dates in Altair" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="saving_charts.html" class="btn btn-neutral float-left" title="Saving Altair Charts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Guido Drechsel
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

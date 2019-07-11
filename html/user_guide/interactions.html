@@ -1,0 +1,445 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Bindings, Selections, Conditions: Making Charts Interactive &mdash; sphinx-test 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Top-Level Chart Configuration" href="configuration.html" />
+    <link rel="prev" title="Data Transformations" href="transform.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> sphinx-test
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Example Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="data.html">Specifying Data in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoding.html">Encodings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="marks.html">Marks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform.html">Data Transformations</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Bindings, Selections, Conditions: Making Charts Interactive</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#selections-building-blocks-of-interactions">Selections: Building Blocks of Interactions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-linked-brush-scatter-plot">Example: Linked-Brush Scatter-Plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#conditions-making-the-chart-respond">Conditions: Making the chart respond</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#selection-types-interval-single-multi">Selection Types: Interval, Single, Multi</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#interval-selections">Interval Selections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#single-selections">Single Selections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-selections">Multiple Selections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#selection-targets-fields-and-encodings">Selection Targets: Fields and Encodings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#binding-adding-data-driven-inputs">Binding: Adding Data Driven Inputs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#input-element-binding">Input Element Binding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scale-binding">Scale Binding</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#selection-values-in-expressions">Selection Values in Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#further-examples">Further Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Top-Level Chart Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="saving_charts.html">Saving Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customization.html">Customizing Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="times_and_dates.html">Times and Dates in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Display Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="renderers.html">Altair Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals.html">Altair Internals: Understanding the Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecosystem.html">Altair Ecosystem</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Case Studies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display_frontends.html">Displaying Charts in Various Frontends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_renderers.html">Customizing Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_transformers.html">Data transformers</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sphinx-test</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Bindings, Selections, Conditions: Making Charts Interactive</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/user_guide/interactions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bindings-selections-conditions-making-charts-interactive">
+<span id="user-guide-interactions"></span><h1>Bindings, Selections, Conditions: Making Charts Interactive<a class="headerlink" href="#bindings-selections-conditions-making-charts-interactive" title="Permalink to this headline">¶</a></h1>
+<p>One of the unique features of Altair, inherited from Vega-Lite, is a
+declarative grammar of not just visualization, but <em>interaction</em>. There are three
+core concepts of this grammar:</p>
+<ul class="simple">
+<li><p>the <code class="xref py py-func docutils literal notranslate"><span class="pre">selection()</span></code> object which captures interactions from the mouse or through other inputs to effect the chart. Inputs can either be events like mouse clicks or drags. Inputs can also be elements like a drop-down, radio button or slider. Selections can be used alone but if you want to change any element of your chart you will need to connect them to a <em>condition</em>.</p></li>
+<li><p>the <code class="xref py py-func docutils literal notranslate"><span class="pre">condition()</span></code> function takes the selection input and changes an element of the chart based on that input.</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">bind</span></code> property of a selection which establishes a two-way binding between the selection and an input element of your chart.</p></li>
+</ul>
+<p>Interactive charts can use one or more of these elements to create rich interactivity between the viewer and the data.</p>
+<div class="section" id="selections-building-blocks-of-interactions">
+<h2>Selections: Building Blocks of Interactions<a class="headerlink" href="#selections-building-blocks-of-interactions" title="Permalink to this headline">¶</a></h2>
+<p>Selections in Altair come in a few flavors, and they can be <em>bound</em> to
+particular charts or sub-charts in your visualization, then referenced
+in other parts of the visualization.</p>
+<div class="section" id="example-linked-brush-scatter-plot">
+<h3>Example: Linked-Brush Scatter-Plot<a class="headerlink" href="#example-linked-brush-scatter-plot" title="Permalink to this headline">¶</a></h3>
+<p>As a motivation, let’s create a simple chart and then add some selections
+to it. Here is a simple scatter-plot created from the <code class="docutils literal notranslate"><span class="pre">cars</span></code> dataset:</p>
+<p>First we’ll create an interval selection using the <code class="xref py py-func docutils literal notranslate"><span class="pre">selection_interval()</span></code>
+function:</p>
+<p>We can now bind this brush to our chart by setting the <code class="docutils literal notranslate"><span class="pre">selection</span></code>
+property:</p>
+<p>The result above is a chart that allows you to click and drag to create
+a selection region, and to move this region once the region is created.</p>
+</div>
+</div>
+<div class="section" id="conditions-making-the-chart-respond">
+<h2>Conditions: Making the chart respond<a class="headerlink" href="#conditions-making-the-chart-respond" title="Permalink to this headline">¶</a></h2>
+<p>This is neat, but the selection doesn’t actually <em>do</em> anything yet.
+To use this selection, we need to reference it in some way within
+the chart. Here, we will use the <code class="xref py py-func docutils literal notranslate"><span class="pre">condition()</span></code> function to create
+a conditional color encoding: we’ll tie the color to the <code class="docutils literal notranslate"><span class="pre">&quot;Origin&quot;</span></code>
+column for points in the selection, and set the color to <code class="docutils literal notranslate"><span class="pre">&quot;lightgray&quot;</span></code>
+for points outside the selection:</p>
+<p>As you can see, with this simple change, the color of the points responds
+to the selection.</p>
+<p>This approach becomes even more powerful when the selection behavior is
+tied across multiple views of the data within a compound chart.
+For example, here we create a <code class="docutils literal notranslate"><span class="pre">chart</span></code> object using the same code as
+above, and horizontally concatenate two versions of this chart: one
+with the x-encoding tied to <code class="docutils literal notranslate"><span class="pre">&quot;Acceleration&quot;</span></code>, and one with the x-encoding
+tied to <code class="docutils literal notranslate"><span class="pre">&quot;Miles_per_Gallon&quot;</span></code></p>
+<p>Because both copies of the chart reference the same selection object, the
+renderer ties the selections together across panels, leading to a dynamic
+display that helps you gain insight into the relationships within the
+dataset.</p>
+<p>Each selection type has attributes through which its behavior can be
+customized; for example we might wish for our brush to be tied only
+to the <code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code> encoding to emphasize that feature in the data.
+We can modify the brush definition, and leave the rest of the code unchanged:</p>
+</div>
+<div class="section" id="selection-types-interval-single-multi">
+<h2>Selection Types: Interval, Single, Multi<a class="headerlink" href="#selection-types-interval-single-multi" title="Permalink to this headline">¶</a></h2>
+<p>With this interesting example under our belt, let’s take a more systematic
+look at some of the types of selections available in Altair.
+For simplicity, we’ll use a common chart in all the following examples; a
+simple heat-map based on the <code class="docutils literal notranslate"><span class="pre">cars</span></code> dataset.
+For convenience, let’s write a quick Python function that will take a selection
+object and create a chart with the color of the chart elements linked to this
+selection:</p>
+<p>Next we’ll use this function to demonstrate the properties of various selections.</p>
+<div class="section" id="interval-selections">
+<h3>Interval Selections<a class="headerlink" href="#interval-selections" title="Permalink to this headline">¶</a></h3>
+<p>An <em>interval</em> selection allows you to select chart elements by clicking and dragging.
+You can create such a selection using the <code class="xref py py-func docutils literal notranslate"><span class="pre">selection_interval()</span></code> function:</p>
+<p>As you click and drag on the plot, you’ll find that your mouse creates a box
+that can be subsequently moved to change the selection.</p>
+<p>The <code class="xref py py-func docutils literal notranslate"><span class="pre">selection_interval()</span></code> function takes a few additional arguments; for
+example we can bind the interval to only the x-axis, and set it such that the
+empty selection contains none of the points:</p>
+<p>A special case of an interval selection is when the interval is bound to the
+chart scales; this is how Altair plots can be made interactive:</p>
+<p>Because this is such a common pattern, Altair provides the <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.interactive()</span></code>
+method which creates such a selection more concisely.</p>
+</div>
+<div class="section" id="single-selections">
+<h3>Single Selections<a class="headerlink" href="#single-selections" title="Permalink to this headline">¶</a></h3>
+<p>A <em>single</em> selection allows you to select a single chart element at a time using
+mouse actions. By default, points are selected on click:</p>
+<p>By changing some arguments, we can select points on mouseover rather than on
+click. We can also set the <code class="docutils literal notranslate"><span class="pre">nearest</span></code> flag to <code class="docutils literal notranslate"><span class="pre">True</span></code> so that the nearest
+point is highlighted:</p>
+</div>
+<div class="section" id="multiple-selections">
+<h3>Multiple Selections<a class="headerlink" href="#multiple-selections" title="Permalink to this headline">¶</a></h3>
+<p>A <em>multi</em> selection is similar to a <em>single</em> selection, but it allows for
+multiple chart objects to be selected at once.
+By default, chart elements can be added to and removed from the selection
+by clicking on them while holding the <em>shift</em> key:</p>
+<p>In addition to the options seen in <code class="xref py py-func docutils literal notranslate"><span class="pre">selection_single()</span></code>, the multi selection
+accepts the <code class="docutils literal notranslate"><span class="pre">toggle</span></code> parameter, which controls whether points can be removed
+from the selection once they are added.</p>
+<p>For example, here is a plot where you can “paint” the chart objects by hovering
+over them with your mouse:</p>
+</div>
+</div>
+<div class="section" id="selection-targets-fields-and-encodings">
+<h2>Selection Targets: Fields and Encodings<a class="headerlink" href="#selection-targets-fields-and-encodings" title="Permalink to this headline">¶</a></h2>
+<p>For any but the simplest selections, the user needs to think about exactly
+what is targeted by the selection, and this can be controlled with either the
+<code class="docutils literal notranslate"><span class="pre">fields</span></code> or <code class="docutils literal notranslate"><span class="pre">encodings</span></code> arguments. These control what data properties are
+used to determine which points are part of the selection.</p>
+<p>For example, here we create a small chart that acts as an interactive legend,
+by targeting the Origin field using <code class="docutils literal notranslate"><span class="pre">fields=['Origin']</span></code>. Clicking on points
+in the upper-left plot (the legend) will propagate a selection for all points
+with a matching <code class="docutils literal notranslate"><span class="pre">Origin</span></code>.</p>
+<p>The above could be equivalently replace <code class="docutils literal notranslate"><span class="pre">fields=['Origin']</span></code> with
+<code class="docutils literal notranslate"><span class="pre">encodings=['color']</span></code>, because in this case the chart maps <code class="docutils literal notranslate"><span class="pre">color</span></code> to
+<code class="docutils literal notranslate"><span class="pre">'Origin'</span></code>.</p>
+<p>Similarly, we can specify multiple fields and/or encodings that must be
+matched in order for a datum to be included in a selection.
+For example, we could modify the above chart to create a two-dimensional
+clickable legend that will select points by both Origin and number of
+cylinders:</p>
+<p>By fine-tuning the behavior of selections in this way, they can be used to
+create a wide variety of linked interactive chart types.</p>
+</div>
+<div class="section" id="binding-adding-data-driven-inputs">
+<h2>Binding: Adding Data Driven Inputs<a class="headerlink" href="#binding-adding-data-driven-inputs" title="Permalink to this headline">¶</a></h2>
+<p>With an understanding of the selection types and conditions, you can now add data-driven input elements to the charts using the <code class="docutils literal notranslate"><span class="pre">bind</span></code> option. As specified by <a class="reference external" href="https://vega.github.io/vega-lite/docs/bind.html#input-element-binding">Vega-lite binding</a>, selections can be bound two-ways:</p>
+<ol class="arabic simple">
+<li><p>Single selections can be bound directly to an input elements. <em>For example, a radio button.</em></p></li>
+<li><p>Interval selections which can be bound to scale. <em>for example, zooming in on a map.</em></p></li>
+</ol>
+<div class="section" id="input-element-binding">
+<h3>Input Element Binding<a class="headerlink" href="#input-element-binding" title="Permalink to this headline">¶</a></h3>
+<p>With single selections, an input element can be added to the chart to establish a binding between the input and the selection.</p>
+<p>For instance, using our example from above a dropdown can be used to highlight cars from a specific <code class="docutils literal notranslate"><span class="pre">origin</span></code> :</p>
+<p>The above example shows all three elements at work. The :input_dropdown: is :bind: to the :selection: which is called from the :condition: encoded through the data.</p>
+<p>The following are the input elements supported in vega-lite:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 51%" />
+<col style="width: 32%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Input Element</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">binding_checkbox</span></code></p></td>
+<td><p>Renders as checkboxes allowing for multiple selections of items.</p></td>
+<td><p><span class="xref std std-ref">gallery_multiple_interactions</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">binding_radio</span></code></p></td>
+<td><p>Radio buttons that force only a single selection</p></td>
+<td><p><span class="xref std std-ref">gallery_multiple_interactions</span></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">binding_select</span></code></p></td>
+<td><p>Drop down box for selecting a single item from a list</p></td>
+<td><p><span class="xref std std-ref">gallery_multiple_interactions</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">binding_range</span></code></p></td>
+<td><p>Shown as a slider to allow for selection along a scale.</p></td>
+<td><p><span class="xref std std-ref">gallery_us_population_over_time</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>Bindings and input elements can also be used to filter data on the client side. Reducing noise in the chart and allowing the user to see just certain selected elements:</p>
+</div>
+<div class="section" id="scale-binding">
+<h3>Scale Binding<a class="headerlink" href="#scale-binding" title="Permalink to this headline">¶</a></h3>
+<p>With interval selections, the <code class="docutils literal notranslate"><span class="pre">bind</span></code> property can be set to the value of <code class="docutils literal notranslate"><span class="pre">&quot;scales&quot;</span></code>. In these cases, the binding will automatically respond to the panning and zooming along the chart:</p>
+</div>
+</div>
+<div class="section" id="selection-values-in-expressions">
+<h2>Selection Values in Expressions<a class="headerlink" href="#selection-values-in-expressions" title="Permalink to this headline">¶</a></h2>
+<p>Selection values can be accessed directly and used in expressions that affect the
+chart. For example, here we create a slider to choose a cutoff value, and color
+points based on whether they are smaller or larger than the value:</p>
+<p>Selector values can be similarly used anywhere that expressions are valid, for
+example, in a <a class="reference internal" href="transform.html#user-guide-calculate-transform"><span class="std std-ref">Calculate Transform</span></a> or a
+<a class="reference internal" href="transform.html#user-guide-filter-transform"><span class="std std-ref">Filter Transform</span></a>.</p>
+</div>
+<div class="section" id="further-examples">
+<h2>Further Examples<a class="headerlink" href="#further-examples" title="Permalink to this headline">¶</a></h2>
+<p>Now that you understand the basics of Altair selections and bindings, you might wish to look
+through the <a class="reference internal" href="../gallery/index.html#gallery-category-interactive-charts"><span class="std std-ref">Interactive Charts</span></a> section of the example gallery
+for ideas about how they can be applied to more interesting charts.</p>
+<p>For more information on how to fine-tune selections, including specifying other
+mouse and keystroke options, see the <a class="reference external" href="https://vega.github.io/vega-lite/docs/selection.html">Vega-Lite Selection documentation</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="configuration.html" class="btn btn-neutral float-right" title="Top-Level Chart Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="transform.html" class="btn btn-neutral float-left" title="Data Transformations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Guido Drechsel
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

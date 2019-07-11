@@ -1,0 +1,434 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Top-Level Chart Configuration &mdash; sphinx-test 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Compound Charts: Layer, HConcat, VConcat, Repeat, Facet" href="compound_charts.html" />
+    <link rel="prev" title="Bindings, Selections, Conditions: Making Charts Interactive" href="interactions.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> sphinx-test
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/starting.html">Basic Statistical Visualization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Example Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="data.html">Specifying Data in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoding.html">Encodings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="marks.html">Marks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform.html">Data Transformations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactions.html">Bindings, Selections, Conditions: Making Charts Interactive</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Top-Level Chart Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#chart-configuration">Chart Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#axis-configuration">Axis Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#header-configuration">Header Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#legend-configuration">Legend Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mark-and-mark-style-configuration">Mark and Mark Style Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scale-configuration">Scale Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scale-range-configuration">Scale Range Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#projection-configuration">Projection Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#selection-configuration">Selection Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#title-configuration">Title Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#view-configuration">View Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#altair-themes">Altair Themes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#changing-the-theme">Changing the Theme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#defining-a-custom-theme">Defining a Custom Theme</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="compound_charts.html">Compound Charts: Layer, HConcat, VConcat, Repeat, Facet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="saving_charts.html">Saving Altair Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customization.html">Customizing Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="times_and_dates.html">Times and Dates in Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Display Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="renderers.html">Altair Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internals.html">Altair Internals: Understanding the Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ecosystem.html">Altair Ecosystem</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Case Studies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../case_studies/exploring-weather.html">Exploring Seattle Weather</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="importing.html">Importing Vega &amp; Vega-Lite Versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display_frontends.html">Displaying Charts in Various Frontends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_renderers.html">Customizing Renderers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_transformers.html">Data transformers</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sphinx-test</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Top-Level Chart Configuration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/user_guide/configuration.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="top-level-chart-configuration">
+<span id="user-guide-configuration"></span><h1>Top-Level Chart Configuration<a class="headerlink" href="#top-level-chart-configuration" title="Permalink to this headline">¶</a></h1>
+<p>Many aspects of a chart’s appearance can be configured at the top level using
+the <code class="docutils literal notranslate"><span class="pre">configure_*()</span></code> methods.
+These methods and the properties that they set are only valid at the top level
+of a chart, and can be thought of as a way of setting a chart theme: that is,
+they set the default styles for the entire chart, and these defaults can be
+overridden by specific style settings associated with chart elements.</p>
+<p>These methods and their arguments will be outlined below:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#config-chart"><span class="std std-ref">Chart Configuration</span></a> <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure()</span></code></p></li>
+<li><p><a class="reference internal" href="#config-axis"><span class="std std-ref">Axis Configuration</span></a> <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_axis()</span></code></p></li>
+<li><p><a class="reference internal" href="#config-header"><span class="std std-ref">Header Configuration</span></a> <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_header()</span></code></p></li>
+<li><p><a class="reference internal" href="#config-legend"><span class="std std-ref">Legend Configuration</span></a> <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_legend()</span></code></p></li>
+<li><p><a class="reference internal" href="#config-mark"><span class="std std-ref">Mark and Mark Style Configuration</span></a> <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_mark()</span></code></p></li>
+<li><p><a class="reference internal" href="#config-scale"><span class="std std-ref">Scale Configuration</span></a> <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_scale()</span></code></p></li>
+<li><p><a class="reference internal" href="#config-range"><span class="std std-ref">Scale Range Configuration</span></a> <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_range()</span></code></p></li>
+<li><p><a class="reference internal" href="#config-projection"><span class="std std-ref">Projection Configuration</span></a> <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_projection()</span></code></p></li>
+<li><p><a class="reference internal" href="#config-selection"><span class="std std-ref">Selection Configuration</span></a> <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_selection()</span></code></p></li>
+<li><p><a class="reference internal" href="#config-title"><span class="std std-ref">Title Configuration</span></a> <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_title()</span></code></p></li>
+<li><p><a class="reference internal" href="#config-view"><span class="std std-ref">View Configuration</span></a> <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_view()</span></code></p></li>
+</ul>
+<p>For more discussion of approaches to chart customization, see
+<a class="reference internal" href="customization.html#user-guide-customization"><span class="std std-ref">Customizing Visualizations</span></a>.</p>
+<div class="section" id="chart-configuration">
+<span id="config-chart"></span><h2>Chart Configuration<a class="headerlink" href="#chart-configuration" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure()</span></code> method adds a <code class="xref py py-class docutils literal notranslate"><span class="pre">Config</span></code> instance to the chart,
+and has the following attributes:</p>
+</div>
+<div class="section" id="axis-configuration">
+<span id="config-axis"></span><h2>Axis Configuration<a class="headerlink" href="#axis-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Axis configuration defines default settings for axes, and can be set using
+the <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_axis()</span></code> method.
+Properties defined here are applied to all axes in the figure.</p>
+<p>Additional property blocks can target more specific axis types based on the
+orientation (“axisX”, “axisY”, “axisLeft”, “axisTop”, etc.) or band scale
+type (“axisBand”).
+For example, properties defined under the “axisBand”
+property will only apply to axes visualizing “band” scales.
+If multiple axis config blocks apply to a single axis, type-based options
+take precedence over orientation-based options, which in turn take precedence
+over general options.</p>
+<p>The methods are the following:</p>
+<ul class="simple">
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_axis()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_axisBand()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_axisBottom()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_axisLeft()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_axisRight()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_axisTop()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_axisX()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_axisY()</span></code></p></li>
+</ul>
+<p>They have the following properties:</p>
+</div>
+<div class="section" id="header-configuration">
+<span id="config-header"></span><h2>Header Configuration<a class="headerlink" href="#header-configuration" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_header()</span></code> method allows configuration of facet headers,
+including the font, color, size, and position of the title and labels.
+Here is an example:</p>
+</div>
+<div class="section" id="legend-configuration">
+<span id="config-legend"></span><h2>Legend Configuration<a class="headerlink" href="#legend-configuration" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_legend()</span></code> allows you to customize the appearance of chart
+legends, including location, fonts, bounding boxes, colors, and more.
+Here is an example:</p>
+<p>Additional properties are  summarized in the following table:</p>
+</div>
+<div class="section" id="mark-and-mark-style-configuration">
+<span id="config-mark"></span><h2>Mark and Mark Style Configuration<a class="headerlink" href="#mark-and-mark-style-configuration" title="Permalink to this headline">¶</a></h2>
+<p>The mark configuration can be set using the <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_mark()</span></code>
+method, which sets the default properties for all marks in the chart.
+In addition, the config object also provides mark-specific configuration
+using the mark type (e.g. <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_area()</span></code>) for
+defining default properties for each mark.</p>
+<p>For general configuration of all mark types, use:</p>
+<ul class="simple">
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_mark()</span></code></p></li>
+</ul>
+<p>For configurations specific to particular mark types, use:</p>
+<ul class="simple">
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_area()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_bar()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_circle()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_geoshape()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_line()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_point()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_rect()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_rule()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_square()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_text()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_tick()</span></code></p></li>
+<li><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_trail()</span></code></p></li>
+</ul>
+<p>Each of the above methods accepts the following properties:</p>
+<p>In addition to the default mark properties above, default values can be
+further customized using named styles defined as keyword arguments to
+the <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_style()</span></code> method.
+Styles can then be invoked by including a style property within a mark
+definition object.</p>
+</div>
+<div class="section" id="scale-configuration">
+<span id="config-scale"></span><h2>Scale Configuration<a class="headerlink" href="#scale-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Scales can be configured using <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_scale()</span></code>, which has
+the following properties:</p>
+</div>
+<div class="section" id="scale-range-configuration">
+<span id="config-range"></span><h2>Scale Range Configuration<a class="headerlink" href="#scale-range-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Scale ranges can be configured using <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_range()</span></code>, which has
+the following properties:</p>
+</div>
+<div class="section" id="projection-configuration">
+<span id="config-projection"></span><h2>Projection Configuration<a class="headerlink" href="#projection-configuration" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_projection()</span></code></p>
+</div>
+<div class="section" id="selection-configuration">
+<span id="config-selection"></span><h2>Selection Configuration<a class="headerlink" href="#selection-configuration" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_selection()</span></code></p>
+</div>
+<div class="section" id="title-configuration">
+<span id="config-title"></span><h2>Title Configuration<a class="headerlink" href="#title-configuration" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_title()</span></code> method allows configuration of the chart
+title, including the font, color, placement, and orientation.
+Here is an example
+here is an example:</p>
+<p>Additional title configuration options are listed in the following table:</p>
+</div>
+<div class="section" id="view-configuration">
+<span id="config-view"></span><h2>View Configuration<a class="headerlink" href="#view-configuration" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">Chart.configure_view()</span></code> method allows you to configure aspecs of the
+chart’s <em>view</em>, i.e. the area of the screen in which the data and scales are
+drawn. Here is an example to demonstrate some of the visual features that can
+be controlled:</p>
+<p>Additional properties are summarized in the following table:</p>
+</div>
+<div class="section" id="altair-themes">
+<span id="chart-themes"></span><h2>Altair Themes<a class="headerlink" href="#altair-themes" title="Permalink to this headline">¶</a></h2>
+<p>Altair makes available a theme registry that lets users apply chart configurations
+globally within any Python session. This is done via the <code class="docutils literal notranslate"><span class="pre">alt.themes</span></code> object.</p>
+<p>The themes registry consists of functions which define a specification dictionary
+that will be added to every created chart.
+For example, the default theme configures the default size of a single chart:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">default</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">themes</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">default</span><span class="p">()</span>
+<span class="go">{&#39;config&#39;: {&#39;view&#39;: {&#39;height&#39;: 300, &#39;width&#39;: 400}}}</span>
+</pre></div>
+</div>
+<p>You can see that any chart you create will have this theme applied, and these configurations
+added to its specification:</p>
+<p>The rendered chart will then reflect these configurations:</p>
+<div class="section" id="changing-the-theme">
+<h3>Changing the Theme<a class="headerlink" href="#changing-the-theme" title="Permalink to this headline">¶</a></h3>
+<p>If you would like to enable any other theme for the length of your Python session,
+you can call <code class="docutils literal notranslate"><span class="pre">alt.themes.enable(theme_name)</span></code>.
+For example, Altair includes a theme in which the chart background is opaque
+rather than transparent:</p>
+<p>Notice that the background color of the chart is now set to white.
+If you would like no theme applied to your chart, you can use the
+theme named <code class="docutils literal notranslate"><span class="pre">'none'</span></code>:</p>
+<p>Because the view configuration is not set, the chart is smaller
+than the default rendering.</p>
+<p>If you would like to use any theme just for a single chart, you can use the
+<code class="docutils literal notranslate"><span class="pre">with</span></code> statement to enable a temporary theme:</p>
+<p>Currently Altair does not offer many built-in themes, but we plan to add
+more options in the future.</p>
+</div>
+<div class="section" id="defining-a-custom-theme">
+<h3>Defining a Custom Theme<a class="headerlink" href="#defining-a-custom-theme" title="Permalink to this headline">¶</a></h3>
+<p>The theme registry also allows defining and registering custom themes.
+A theme is simply a function that returns a dictionary of default values
+to be added to the chart specification at rendering time, which is then
+registered and activated.</p>
+<p>For example, here we define a theme in which all marks are drawn with black
+fill unless otherwise specified:</p>
+<p>If you want to restore the default theme, use:</p>
+<p>For more ideas on themes, see the <a class="reference external" href="https://github.com/vega/vega-themes/">Vega Themes</a> repository.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="compound_charts.html" class="btn btn-neutral float-right" title="Compound Charts: Layer, HConcat, VConcat, Repeat, Facet" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="interactions.html" class="btn btn-neutral float-left" title="Bindings, Selections, Conditions: Making Charts Interactive" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Guido Drechsel
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
