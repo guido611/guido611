@@ -12,11 +12,8 @@ __The advantages in a nutshell:__
 - The PPS is __faster__ than fitting a model (e.g. a Random Forest or SVM)
 - The PPS is __convenient__ because you don't need to transform your columns (e.g. most models require some transformation)
 
-```
-pip install nbconvert==5.5.0
-```
 
-## Description
+### Description
 The predictive power score can be described as follows:
 
 0) The score is calculated between 2 columns: a feature column and a target column. The score measures how well the feature column can predict the target column.
@@ -27,7 +24,7 @@ The predictive power score can be described as follows:
 5) The score is based on a specific learning algorithm which can detect nonlinear patterns. If you cannot reproduce the predictive power of a feature in one of your own models (e.g. a linear regression), then maybe your model is not suitable enough for the problem or cannot model non-linear relationships.
 
 
-## Usage and Comparison to existing approaches
+### Usage and Comparison to existing approaches
 The predictive power score can be used for several use cases. The most common use cases are __Feature Selection__ and __Finding Patterns__.
 
 - Feature Selection: a typical application scenario is to find the best univariate predictors/features for a given target. Is is especially useful if you have many potential features e.g. when you auto-generate features with tsfresh and featurelabs or when you try to find predictive patterns in external data. The score is faster than fitting a classical model like a Random forest. Also, it does not have many of the problems of feature importances.

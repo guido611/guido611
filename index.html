@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>edaviz: Python Library for Data Exploration and Visualization &mdash; sphinx-test 0.0.1 documentation</title>
+  <title>edaviz: Python Library for Data Exploration and Visualization &mdash; edaviz 0.0.1 documentation</title>
   
 
   
@@ -49,7 +49,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> sphinx-test
+            <a href="#" class="icon icon-home"> edaviz
           
 
           
@@ -82,22 +82,22 @@
               <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="getting_started/overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="getting_started/getting_started.html">edaviz</a></li>
-<li class="toctree-l1"><a class="reference internal" href="getting_started/getting_started.html#installation">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="getting_started/getting_started.html#usage">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="getting_started/getting_started.html#api">API</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Next Level</span></p>
+<p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="01_Next_Level_Shit/exporting_your_results.html">How to export your results in Jupyter notebooks with edaviz widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_Next_Level_Shit/predictive_power_score.html">Introducing the Predictive Power Score (PPS)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_Next_Level_Shit/predictive_power_score.html#description">Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_Next_Level_Shit/predictive_power_score.html#usage-and-comparison-to-existing-approaches">Usage and Comparison to existing approaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/exporting_your_results.html">How to export your results in Jupyter notebooks with edaviz widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/predictive_power_score.html">Introducing the Predictive Power Score (PPS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/predictors.html">Predictors</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Folder</span></p>
+<p class="caption"><span class="caption-text">Evaluation</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="02_Folder/api.html">Before you read the docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_Folder/evaluation.html">How we evaluated that edaviz makes Data Scientists more than 10x faster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation/evaluation.html">How we evaluated that edaviz makes Data Scientists more than 10x faster</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="legal/pricing.html">Pricing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="legal/eula.html">End-User License Agreement</a></li>
 </ul>
 
             
@@ -112,7 +112,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">sphinx-test</a>
+          <a href="#">edaviz</a>
         
       </nav>
 
@@ -164,47 +164,74 @@
             
   <div class="section" id="edaviz-python-library-for-data-exploration-and-visualization">
 <h1>edaviz: Python Library for Data Exploration and Visualization<a class="headerlink" href="#edaviz-python-library-for-data-exploration-and-visualization" title="Permalink to this headline">¶</a></h1>
+<p>Watch the <a class="reference external" href="https://youtu.be/eYEeYv11YrQ">demo video</a>.</p>
+<p>Currently, edaviz is in private access mode. If you like edaviz, you can <a class="reference external" href="http://eepurl.com/go6Zlj">subscribe to our waiting list</a> in order to get access.</p>
+<div class="section" id="outline">
+<h2>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#the-problem">The Problem</a></p></li>
+<li><p><a class="reference internal" href="#the-solution">The Solution</a></p></li>
+<li><p><a class="reference internal" href="#the-features">The Features</a></p></li>
+<li><p><a class="reference internal" href="#contact">Contact</a></p></li>
+</ul>
+</div>
+<div class="section" id="the-problem">
+<h2>The Problem<a class="headerlink" href="#the-problem" title="Permalink to this headline">¶</a></h2>
+<p>80% of the effort in Data Science projects is due to data understanding, transformation, and cleaning.
+And of course, it all starts with data exploration. If you don’t understand the data set, you cannot work with it.</p>
+<p>However, the path to understanding your data is paved with numerous tedious tasks. You need to investigate the distribution of your columns, explore missing values, and check whether there are some useful patterns in your data. In most cases, we need to be cautious with our data, as there are always odd suprises to be found.</p>
+</div>
+<div class="section" id="the-solution">
+<h2>The Solution<a class="headerlink" href="#the-solution" title="Permalink to this headline">¶</a></h2>
+<p><strong>edaviz</strong> is a Python library which helps you to quickly understand and visualize your pandas data frames. It is most helpful during data exploration after you received a new data set. However, you can also use it during data cleaning and data transformation, during feature engineering, or during model evaluation - whenever you need to understand your data.</p>
+<p>Watch the <a class="reference external" href="https://youtu.be/eYEeYv11YrQ">demo video</a></p>
+</div>
+<div class="section" id="the-features">
+<h2>The Features<a class="headerlink" href="#the-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Quick exploration without coding but full flexibility of code (after all, you are working in a Jupyter environment)</p></li>
+<li><p>High interactivity and data drill down</p></li>
+<li><p>Finds the best features for predicting your target</p></li>
+<li><p>Explores predictive patterns between columns</p></li>
+<li><p>Automatically chooses visualizations based on data types</p></li>
+</ul>
+<p>Watch the <a class="reference external" href="https://youtu.be/eYEeYv11YrQ">demo video</a></p>
+</div>
+<div class="section" id="contact">
+<h2>Contact<a class="headerlink" href="#contact" title="Permalink to this headline">¶</a></h2>
+<p>If you have questions or want to contribute, you can contact us via opening a <a class="reference external" href="https://github.com/tkrabel/edaviz/issues">Git Issues</a> or texting us on <a class="reference external" href="https://twitter.com/edavizpy">Twitter</a>.</p>
+</div>
+<div class="section" id="table-of-content">
+<h2>Table of Content<a class="headerlink" href="#table-of-content" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="getting_started/overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="getting_started/getting_started.html">edaviz</a></li>
-<li class="toctree-l1"><a class="reference internal" href="getting_started/getting_started.html#installation">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="getting_started/getting_started.html#usage">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="getting_started/getting_started.html#api">API</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Next Level</span></p>
+<p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="01_Next_Level_Shit/exporting_your_results.html">How to export your results in Jupyter notebooks with edaviz widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_Next_Level_Shit/predictive_power_score.html">Introducing the Predictive Power Score (PPS)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_Next_Level_Shit/predictive_power_score.html#description">Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_Next_Level_Shit/predictive_power_score.html#usage-and-comparison-to-existing-approaches">Usage and Comparison to existing approaches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/exporting_your_results.html">How to export your results in Jupyter notebooks with edaviz widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/predictive_power_score.html">Introducing the Predictive Power Score (PPS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/predictors.html">Predictors</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Folder</span></p>
+<p class="caption"><span class="caption-text">Evaluation</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="02_Folder/api.html">Before you read the docs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_Folder/evaluation.html">How we evaluated that edaviz makes Data Scientists more than 10x faster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation/evaluation.html">How we evaluated that edaviz makes Data Scientists more than 10x faster</a></li>
 </ul>
 </div>
-<div class="section" id="bug-reports-questions">
-<h2>Bug Reports &amp; Questions<a class="headerlink" href="#bug-reports-questions" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/tkrabel/edaviz">GitHub</a>. If any
-questions or issues come up as you use edaviz, please get in touch via
-<a class="reference external" href="https://github.com/tkrabel/edaviz/issues">Git Issues</a> or our <a class="reference external" href="https://twitter.com/edavizpy">Twitter</a>.</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="legal/pricing.html">Pricing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="legal/eula.html">End-User License Agreement</a></li>
+</ul>
 </div>
 </div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-</ul>
-<ul class="simple">
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
-</ul>
 </div>
 
 
@@ -225,7 +252,7 @@ questions or issues come up as you use edaviz, please get in touch via
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Guido Drechsel
+        &copy; Copyright 2019, 8080 Labs GmbH
 
     </p>
   </div>

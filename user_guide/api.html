@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Before you read the docs &mdash; sphinx-test 0.0.1 documentation</title>
+  <title>API &mdash; edaviz 0.0.1 documentation</title>
   
 
   
@@ -34,7 +34,9 @@
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="How to export your results in Jupyter notebooks with edaviz widgets" href="exporting_your_results.html" />
+    <link rel="prev" title="Overview" href="../getting_started/overview.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -48,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> sphinx-test
+            <a href="../index.html" class="icon icon-home"> edaviz
           
 
           
@@ -81,10 +83,47 @@
               <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/getting_started.html">edaviz</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/getting_started.html#installation">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/getting_started.html#usage">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/getting_started.html#api">API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#before-you-read-the-docs">Before you read the docs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#edaviz-plot-df-x-none-y-none-target-none">edaviz.plot(df, x=None, y=None, target=None)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#eda-patterns-df">eda.patterns(df)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#eda-correlations-df">eda.correlations(df)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#eda-predictors-df-target">eda.predictors(df, target)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#eda-columns-df">eda.columns(df)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exporting_your_results.html">How to export your results in Jupyter notebooks with edaviz widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="predictive_power_score.html">Introducing the Predictive Power Score (PPS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="predictors.html">Predictors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Evaluation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../evaluation/evaluation.html">How we evaluated that edaviz makes Data Scientists more than 10x faster</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../legal/pricing.html">Pricing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legal/eula.html">End-User License Agreement</a></li>
 </ul>
 
             
@@ -99,7 +138,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">sphinx-test</a>
+          <a href="../index.html">edaviz</a>
         
       </nav>
 
@@ -130,13 +169,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Before you read the docs</li>
+      <li>API</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/02_Folder/api.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/user_guide/api.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -149,14 +188,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="before-you-read-the-docs">
-<h1>Before you read the docs<a class="headerlink" href="#before-you-read-the-docs" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="api">
+<h1>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="before-you-read-the-docs">
+<h2>Before you read the docs<a class="headerlink" href="#before-you-read-the-docs" title="Permalink to this headline">¶</a></h2>
 <p>We implemented edaviz in a way so that it is as user-friendly as possible. The best way to learn the api is to call <code class="docutils literal notranslate"><span class="pre">eda.plot(df)</span></code> and click through the tabs. For each module, we display the code that produced the output. Simply copy-paste the code into another Jupyter cell if you want to play around with the functions.</p>
 <div class="section" id="edaviz-plot-df-x-none-y-none-target-none">
-<h2>edaviz.plot(df, x=None, y=None, target=None)<a class="headerlink" href="#edaviz-plot-df-x-none-y-none-target-none" title="Permalink to this headline">¶</a></h2>
+<h3>edaviz.plot(df, x=None, y=None, target=None)<a class="headerlink" href="#edaviz-plot-df-x-none-y-none-target-none" title="Permalink to this headline">¶</a></h3>
 <p>Shows either an overview of the whole data frame, a univariate or a bivariate plot.</p>
 <div class="section" id="example">
-<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<h4>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">edaviz</span> <span class="kn">as</span> <span class="nn">eda</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">eda</span><span class="o">.</span><span class="n">get_titanic_df</span><span class="p">()</span>
 
@@ -174,10 +215,10 @@
 </div>
 </div>
 <div class="section" id="eda-patterns-df">
-<h2>eda.patterns(df)<a class="headerlink" href="#eda-patterns-df" title="Permalink to this headline">¶</a></h2>
-<p>Shows an interactive heatmap comparing all columns with each other. It is like a correlation matrix, but uses a <a class="reference external" href="https://github.com/tkrabel/edaviz/blob/master/docs/predictive_power_score">predictive power score</a> instead.</p>
+<h3>eda.patterns(df)<a class="headerlink" href="#eda-patterns-df" title="Permalink to this headline">¶</a></h3>
+<p>Shows an interactive heatmap comparing all columns with each other. It is like a correlation matrix, but uses a <a class="reference external" href="#introducing-the-predictive-power-score-pps">predictive power score</a> instead.</p>
 <div class="section" id="id1">
-<h3>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h4>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">edaviz</span> <span class="kn">as</span> <span class="nn">eda</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">eda</span><span class="o">.</span><span class="n">get_titanic_df</span><span class="p">()</span>
 
@@ -187,10 +228,10 @@
 </div>
 </div>
 <div class="section" id="eda-correlations-df">
-<h2>eda.correlations(df)<a class="headerlink" href="#eda-correlations-df" title="Permalink to this headline">¶</a></h2>
+<h3>eda.correlations(df)<a class="headerlink" href="#eda-correlations-df" title="Permalink to this headline">¶</a></h3>
 <p>‘eda.correlations’ shows an interactive correlation matrix. By clicking on an element of the matrix, you can visualize the bivariate relationship between two columns.</p>
 <div class="section" id="id2">
-<h3>Example<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h4>Example<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">edaviz</span> <span class="kn">as</span> <span class="nn">eda</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">eda</span><span class="o">.</span><span class="n">get_titanic_df</span><span class="p">()</span>
 
@@ -200,10 +241,10 @@
 </div>
 </div>
 <div class="section" id="eda-predictors-df-target">
-<h2>eda.predictors(df, target)<a class="headerlink" href="#eda-predictors-df-target" title="Permalink to this headline">¶</a></h2>
+<h3>eda.predictors(df, target)<a class="headerlink" href="#eda-predictors-df-target" title="Permalink to this headline">¶</a></h3>
 <p>This function let’s you inspect the best univariate predictors for a given target variable.</p>
 <div class="section" id="id3">
-<h3>Example<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<h4>Example<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">edaviz</span> <span class="kn">as</span> <span class="nn">eda</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">eda</span><span class="o">.</span><span class="n">get_titanic_df</span><span class="p">()</span>
 
@@ -213,16 +254,17 @@
 </div>
 </div>
 <div class="section" id="eda-columns-df">
-<h2>eda.columns(df)<a class="headerlink" href="#eda-columns-df" title="Permalink to this headline">¶</a></h2>
+<h3>eda.columns(df)<a class="headerlink" href="#eda-columns-df" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">eda.columns()</span></code> provides you with a graphical interface that allows you to quickly look at univariate summaries of your columns.
 Since it is a correlation matrix, columns of non-numeric types (such as strings) are excluded from the computation.</p>
 <div class="section" id="id4">
-<h3>Example<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<h4>Example<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">edaviz</span> <span class="kn">as</span> <span class="nn">eda</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">eda</span><span class="o">.</span><span class="n">get_titanic_df</span><span class="p">()</span>
 
 <span class="n">eda</span><span class="o">.</span><span class="n">columns</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -234,12 +276,21 @@ Since it is a correlation matrix, columns of non-numeric types (such as strings)
           </div>
           <footer>
   
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="exporting_your_results.html" class="btn btn-neutral float-right" title="How to export your results in Jupyter notebooks with edaviz widgets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../getting_started/overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Guido Drechsel
+        &copy; Copyright 2019, 8080 Labs GmbH
 
     </p>
   </div>

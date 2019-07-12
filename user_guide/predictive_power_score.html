@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introducing the Predictive Power Score (PPS) &mdash; sphinx-test 0.0.1 documentation</title>
+  <title>Introducing the Predictive Power Score (PPS) &mdash; edaviz 0.0.1 documentation</title>
   
 
   
@@ -34,7 +34,9 @@
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Predictors" href="predictors.html" />
+    <link rel="prev" title="How to export your results in Jupyter notebooks with edaviz widgets" href="exporting_your_results.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -48,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> sphinx-test
+            <a href="../index.html" class="icon icon-home"> edaviz
           
 
           
@@ -81,10 +83,26 @@
               <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/getting_started.html">edaviz</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/getting_started.html#installation">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/getting_started.html#usage">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/getting_started.html#api">API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exporting_your_results.html">How to export your results in Jupyter notebooks with edaviz widgets</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introducing the Predictive Power Score (PPS)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage-and-comparison-to-existing-approaches">Usage and Comparison to existing approaches</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="predictors.html">Predictors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Evaluation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../evaluation/evaluation.html">How we evaluated that edaviz makes Data Scientists more than 10x faster</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../legal/pricing.html">Pricing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legal/eula.html">End-User License Agreement</a></li>
 </ul>
 
             
@@ -99,7 +117,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">sphinx-test</a>
+          <a href="../index.html">edaviz</a>
         
       </nav>
 
@@ -136,7 +154,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/01_Next_Level_Shit/predictive_power_score.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/user_guide/predictive_power_score.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -166,12 +184,8 @@
 <li><p>The PPS is <strong>faster</strong> than fitting a model (e.g. a Random Forest or SVM)</p></li>
 <li><p>The PPS is <strong>convenient</strong> because you don’t need to transform your columns (e.g. most models require some transformation)</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">nbconvert</span><span class="o">==</span><span class="mf">5.5</span><span class="o">.</span><span class="mi">0</span>
-</pre></div>
-</div>
-</div>
 <div class="section" id="description">
-<h1>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h1>
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>The predictive power score can be described as follows:</p>
 <ol class="simple">
 <li><p>The score is calculated between 2 columns: a feature column and a target column. The score measures how well the feature column can predict the target column.</p></li>
@@ -183,12 +197,13 @@
 </ol>
 </div>
 <div class="section" id="usage-and-comparison-to-existing-approaches">
-<h1>Usage and Comparison to existing approaches<a class="headerlink" href="#usage-and-comparison-to-existing-approaches" title="Permalink to this headline">¶</a></h1>
+<h2>Usage and Comparison to existing approaches<a class="headerlink" href="#usage-and-comparison-to-existing-approaches" title="Permalink to this headline">¶</a></h2>
 <p>The predictive power score can be used for several use cases. The most common use cases are <strong>Feature Selection</strong> and <strong>Finding Patterns</strong>.</p>
 <ul class="simple">
 <li><p>Feature Selection: a typical application scenario is to find the best univariate predictors/features for a given target. Is is especially useful if you have many potential features e.g. when you auto-generate features with tsfresh and featurelabs or when you try to find predictive patterns in external data. The score is faster than fitting a classical model like a Random forest. Also, it does not have many of the problems of feature importances.</p></li>
 <li><p>Finding Patterns: another scenario is to find predictive patterns between variables via calculating all pairwise predictive power scores as a patterns matrix. The patterns matrix is better than a correlation matrix because the correlation score is symmetric and cannot find nonlinear patterns. You might find some surprises, if you have a look at the patterns matrix of the Titanic data set.</p></li>
 </ul>
+</div>
 </div>
 
 
@@ -197,12 +212,21 @@
           </div>
           <footer>
   
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="predictors.html" class="btn btn-neutral float-right" title="Predictors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="exporting_your_results.html" class="btn btn-neutral float-left" title="How to export your results in Jupyter notebooks with edaviz widgets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Guido Drechsel
+        &copy; Copyright 2019, 8080 Labs GmbH
 
     </p>
   </div>

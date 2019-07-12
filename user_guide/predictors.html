@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Predictors &mdash; edaviz 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="How we evaluated that edaviz makes Data Scientists more than 10x faster" href="../evaluation/evaluation.html" />
+    <link rel="prev" title="Introducing the Predictive Power Score (PPS)" href="predictive_power_score.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> edaviz
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/overview.html">Overview</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exporting_your_results.html">How to export your results in Jupyter notebooks with edaviz widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="predictive_power_score.html">Introducing the Predictive Power Score (PPS)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Predictors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#outline">Outline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#general-calculation">General calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#learning-algorithm">Learning algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-preprocessing">Data preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#score-metrics">Score metrics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#regression-r2">Regression - R²</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#baseline-score-for-r2">Baseline score for R²</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#binary-classification-roc-auc">Binary classification - ROC AUC</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#baseline-score-for-roc-auc">Baseline score for ROC AUC</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#multi-class-classification-wf1">Multi-class classification - wF1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#baseline-score-for-weighted-f1">Baseline score for weighted F1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#normalized-scores">Normalized scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#introducing-the-predictive-power-score-pps">Introducing the Predictive Power Score (PPS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#visualizing-predictor-patterns">Visualizing predictor patterns</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Evaluation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../evaluation/evaluation.html">How we evaluated that edaviz makes Data Scientists more than 10x faster</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../legal/pricing.html">Pricing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legal/eula.html">End-User License Agreement</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">edaviz</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Predictors</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/user_guide/predictors.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="predictors">
+<h1>Predictors<a class="headerlink" href="#predictors" title="Permalink to this headline">¶</a></h1>
+<p>edaviz enables you to quickly calculate the predictor scores for a given target column using <code class="docutils literal notranslate"><span class="pre">eda.predictors(df,</span> <span class="pre">&quot;target_name&quot;)</span></code>. As always in edaviz, the calculation works with many different data types for the feature and the target because edaviz automatically adjusts the calculation.</p>
+<p>The score is calculated training a Decision Tree with <strong>1 feature</strong> trying to predict the target column. This means there are no interaction effects between the scores of various features.</p>
+<img src="https://edaviz-assets.s3.eu-central-1.amazonaws.com/predictors_sample_titanic_survived_small.png" width=400 /><div class="section" id="outline">
+<h2>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="#general-calculation">General calculation</a></p></li>
+<li><p><a class="reference external" href="#learning-algorithm">Learning algorithm</a></p></li>
+<li><p><a class="reference external" href="#data-preprocessing">Data preprocessing</a></p></li>
+<li><p><a class="reference external" href="#score-metrics">Score metrics</a></p></li>
+<li><p><a class="reference external" href="#normalized-scores">Normalized scores</a></p></li>
+<li><p><a class="reference external" href="#introducing-the-predictive-power-score-pps">Predictive Power Score</a></p></li>
+<li><p><a class="reference external" href="#visualizing-predictor-patterns">Visualizing predictor patterns</a></p></li>
+</ul>
+</div>
+<div class="section" id="general-calculation">
+<h2>General calculation<a class="headerlink" href="#general-calculation" title="Permalink to this headline">¶</a></h2>
+<p>Here is the summary of the most important calculation details:</p>
+<ul class="simple">
+<li><p>The score is calculated using only 1 feature trying to predict the target column. This means there are no interaction effects between the scores of various features. Note that this is in contrast to feature importance</p></li>
+<li><p>The score is calculated on the test sets of a 5-fold crossvalidation</p></li>
+<li><p>All rows which have a missing value in the feature or the target column are dropped</p></li>
+<li><p>In case that the dataset has more than 5,000 rows the score is only calculated on a random subset of 5,000 rows with a fixed random seed</p></li>
+<li><p>There is no grid search for optimal model parameters</p></li>
+</ul>
+</div>
+<div class="section" id="learning-algorithm">
+<h2>Learning algorithm<a class="headerlink" href="#learning-algorithm" title="Permalink to this headline">¶</a></h2>
+<p>As a learning algorithm, we currently use a Decision Tree because the Decision Tree has the following properties:</p>
+<ul class="simple">
+<li><p>can detect any non-linear bivariate relationship</p></li>
+<li><p>good predictive power in a wide variety of use cases</p></li>
+<li><p>low requirements for feature preprocessing</p></li>
+<li><p>robust model which can handle outliers and does not easily overfit</p></li>
+<li><p>can be used for classification and regression</p></li>
+<li><p>can be calculated quicker than many other algorithms</p></li>
+</ul>
+<p>We differentiate the exact implementation based on the data type of the target column:</p>
+<ul class="simple">
+<li><p>If the target column is numeric, we use the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html" target="_blank">sklearn.DecisionTreeRegressor</a></p></li>
+<li><p>If the target column is categoric, we use the
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html" target="_blank">sklearn.DecisionTreeClassifier</a></p></li>
+</ul>
+<p>Please note that we prefer a general good performance on a wide variety of use cases over better performance in some narrow use cases. If you have a proposal for a better learning algorithm, please write us via info [at] edaviz [dot] com</p>
+<p>However, please note why we actively decided against the following algorithms:</p>
+<ul class="simple">
+<li><p>Correlation or Linear Regression: cannot detect non-linear bivariate relationships without extensive preprocessing</p></li>
+<li><p>GAMs: might have problems with very unsmooth functions</p></li>
+<li><p>SVM: potentially bad performance if the wrong kernel is selected</p></li>
+<li><p>Random Forest/Gradient Boosted Tree: slower than a single Decision Tree</p></li>
+<li><p>Neural Networks and Deep Learning: slower calculation than a Decision Tree and also needs more feature preprocessing</p></li>
+</ul>
+</div>
+<div class="section" id="data-preprocessing">
+<h2>Data preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this headline">¶</a></h2>
+<p>Even though the Decision Tree is a very flexible learning algorithm, we perform the following preprocessing steps if a column is categoric, which means that it has the pandas <code class="docutils literal notranslate"><span class="pre">dtype</span> <span class="pre">object</span></code>.</p>
+<ul class="simple">
+<li><p>If the <strong>target column</strong> is categoric, we use the
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html" target="_blank">sklearn.LabelEncoder</a></p></li>
+<li><p>If the <strong>feature column</strong> is categoric, we use the
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html" target="_blank">sklearn.OneHotEncoder</a></p></li>
+</ul>
+</div>
+<div class="section" id="score-metrics">
+<h2>Score metrics<a class="headerlink" href="#score-metrics" title="Permalink to this headline">¶</a></h2>
+<p>Based on the data type and cardinality of the target column, we use different scores for assessing the predictive power of the bivariate model.</p>
+<p><strong>Important:</strong> Before explaining the scores in the different cases, you need to understand the following:</p>
+<blockquote>
+<div><p>You cannot evaluate model scores without comparison. You always need to compare your score to the best possible score and to a baseline score. Therefore, we will always describe the score of a perfect model and the score of a naive baseline model. Ideally, a new model will have a score in between those limits. This is especially important for the case of the F1 score described below.</p>
+</div></blockquote>
+<div class="section" id="regression-r2">
+<h3>Regression - R²<a class="headerlink" href="#regression-r2" title="Permalink to this headline">¶</a></h3>
+<p>In the case where the target column is numeric, we compute the R² as the score of the bivariate model. The R² is also referred to as <a class="reference external" href="https://en.wikipedia.org/wiki/Coefficient_of_determination">coefficient of determination</a>.
+It has the following properties:</p>
+<ul class="simple">
+<li><p>The best possible score is 1. In this case the model perfectly predicts the target</p></li>
+<li><p>A constant model that always predicts the average value of the target, disregarding the input features, would get a R² score of 0, which is also the naive baseline as described below.</p></li>
+<li><p>A very bad model can have a value below 0 which is even worse than the naive baseline. A value below 0 is possible due to the technical calculation of the R² (please refer to the formula for more details). However, in order to reduce confusion, edaviz will set negative R² scores to 0 because the semantic insight is the same: the model does not have predictive power.</p></li>
+</ul>
+<div class="section" id="baseline-score-for-r2">
+<h4>Baseline score for R²<a class="headerlink" href="#baseline-score-for-r2" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>The baseline is always 0</p>
+</div></blockquote>
+<p>As described above, the baseline model is a constant predictor that always predicts the average value of the target. This model will have an R² score of 0.</p>
+</div>
+</div>
+<div class="section" id="binary-classification-roc-auc">
+<h3>Binary classification - ROC AUC<a class="headerlink" href="#binary-classification-roc-auc" title="Permalink to this headline">¶</a></h3>
+<p>In the case where the target column is binary, we use the ROC AUC as the score of the bivariate model. ROC AUC stands for <a class="reference external" href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic#Area_under_the_curve">Area Under the Receiver Operating Characteristic curve</a>. The ROC AUC score lies between 0 and 1, with 1 being the best possible score. A model that makes random predictions, disregarding the input, would get an AUC of 0.5.</p>
+<div class="section" id="baseline-score-for-roc-auc">
+<h4>Baseline score for ROC AUC<a class="headerlink" href="#baseline-score-for-roc-auc" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>The baseline is always 0.5</p>
+</div></blockquote>
+<p>The baseline model is a random prediction model which has a score of 0.5.</p>
+</div>
+</div>
+<div class="section" id="multi-class-classification-wf1">
+<h3>Multi-class classification - wF1<a class="headerlink" href="#multi-class-classification-wf1" title="Permalink to this headline">¶</a></h3>
+<p>If the target has more than two classes, we compute the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html">weighted F1 score (wF1)</a>. The F1 score can be interpreted as a weighted average of the precision and recall, where an F1 score reaches its best value at 1 and worst score at 0. The relative contribution of precision and recall to the F1 score are equal. The weighted F1 takes into account the precision and recall of <strong>all</strong> classes weighted by their support as described <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html">here</a></p>
+<div class="section" id="baseline-score-for-weighted-f1">
+<h4>Baseline score for weighted F1<a class="headerlink" href="#baseline-score-for-weighted-f1" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>The baseline is variable based on the target column</p>
+</div></blockquote>
+<p>As a baseline score, we calculate the weighted F1 score of a model that always predicts the most common class of the target column. The score of this model has different values based on the skewedness of the value counts in the target column. For example, the baseline might be 0.2 for one dataset and 0.7 for another. Therefore, it is very important to always compare the F1 score of a new model to the baseline score for this target column because a value of 0.7 might be good for the first dataset but irrelevant for the second.</p>
+</div>
+</div>
+</div>
+<div class="section" id="normalized-scores">
+<h2>Normalized scores<a class="headerlink" href="#normalized-scores" title="Permalink to this headline">¶</a></h2>
+<p>As described in the previous section on <a class="reference external" href="#score-metrics">Score metrics</a>, you always need to compare the score of a given model to 2 other scores:</p>
+<ul class="simple">
+<li><p>the score of a perfect model which is the upper limit</p></li>
+<li><p>the score of a naive baseline model which is the lower limit</p></li>
+</ul>
+<p>If you compare your score to those 2 limits, you actually calculate a normalization in your head. You basically transform the score towards a range from 0 to 1.</p>
+<p>Here are some examples for a normalized score. Please note that the upper limit is always 1 and therefore we don’t explicitly mention it:</p>
+<ul class="simple">
+<li><p>For a numeric target:</p>
+<ul>
+<li><p>let the model R² be 0.6</p></li>
+<li><p>the baseline is 0</p></li>
+<li><p>thus, the normalized score is also 0.6 = (0.6 - 0) / (1 - 0)</p></li>
+</ul>
+</li>
+<li><p>For a binary target:</p>
+<ul>
+<li><p>let the model ROC AUC be 0.7</p></li>
+<li><p>the baseline is 0.5</p></li>
+<li><p>thus, the normalized score is 0.4 = (0.7 - 0.5) / (1 - 0.5)</p></li>
+</ul>
+</li>
+<li><p>For a multiclass target:</p>
+<ul>
+<li><p>let the model wF1 be 0.85</p></li>
+<li><p>let the baseline be 0.8</p></li>
+<li><p>thus, the normalized score is 0.25 = (0.85 - 0.8) / (1 - 0.8)</p></li>
+</ul>
+</li>
+</ul>
+<p>Those normalized scores have an interesting property and they can be used in a new way. Therefore, we also call them Predictive Power Scores.</p>
+</div>
+<div class="section" id="introducing-the-predictive-power-score-pps">
+<h2>Introducing the Predictive Power Score (PPS)<a class="headerlink" href="#introducing-the-predictive-power-score-pps" title="Permalink to this headline">¶</a></h2>
+<p>After the normalization, the scores have the same value range because they all range from 0 to 1.</p>
+<ul class="simple">
+<li><p>If the score is 0, the model does not have more predictive power than a naive baseline.</p></li>
+<li><p>If the score is 1, the model has perfect predictive power.</p></li>
+</ul>
+<p>Due to this normalization, we abstract away the underlying details of the original model metrics. This enables us to have a uniform semantic interpretation of the normalized scores.</p>
+<p>The score answers the question:</p>
+<blockquote>
+<div><p>How much predictive power does this model have?</p>
+</div></blockquote>
+<p>Thus, we also call those normalized scores <strong>Predictive Power Scores</strong>.</p>
+</div>
+<div class="section" id="visualizing-predictor-patterns">
+<h2>Visualizing predictor patterns<a class="headerlink" href="#visualizing-predictor-patterns" title="Permalink to this headline">¶</a></h2>
+<p>Since the Predictive Power Scores (PPS) all have the same value range, we can visualize them in a heatmap for multiple different targets. This enables us to detect novel relationships. You can try it on your own datasets but we will also create some more tutorials on this topic in the future.</p>
+<blockquote>
+<div><p>Please note that the heatmap enables you to visually compare PPS between various targets. However, only the PPS for the same target variable are comparable in a strict mathematic sense. The PPS between target variables are not comparable in a strict mathematic sense. Nevertheless, the visualization is useful because it enables new insights as long as the practitioner is aware of this restriction.</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../evaluation/evaluation.html" class="btn btn-neutral float-right" title="How we evaluated that edaviz makes Data Scientists more than 10x faster" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="predictive_power_score.html" class="btn btn-neutral float-left" title="Introducing the Predictive Power Score (PPS)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, 8080 Labs GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

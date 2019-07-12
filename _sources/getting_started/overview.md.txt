@@ -1,22 +1,17 @@
-# edaviz
-edaviz - Python library for Exploratory Data Analysis and Visualization in Jupyter Notebook or Jupyter Lab
+# Overview
 
-- [Installation](#page_Installation)
-- [Usage](#page_Usage)
-- [API](#page_API)
-
-# Installation
+## Installation
 
 > Currently, we are in private access mode. You will receive the initial `pip install` command and your license directly from us when you have been chosen for early access.
 
 The installation consists of 4 steps:
 
-## 1) pip install
+### 1) pip install
 From the terminal, you can install edaviz with the pip command that you received from us via mail.
 
 
-## 2) setup jupyter extensions
-### Jupyter Notebook
+### 2) setup jupyter extensions
+#### Jupyter Notebook
 From the terminal, you need to setup the Jupyter Notebook extensions via the following commands:
 ```
 jupyter nbextension enable --py widgetsnbextension
@@ -24,7 +19,7 @@ jupyter nbextension enable --py qgrid
 ```
 If this worked for you, you can __continue with step 3__.
 
-### Jupyter Lab
+#### Jupyter Lab
 > Small tip: The setup process with Jupyter Notebook is faster and easier than with Jupyter Lab. Also, JupyterLab 1.0.1 does not work yet, because there are still dependency incompatibilities. However, it works with the latest JupyterLab version before 1.0
 
 If you use Jupyter Lab, you need to use the following commands from your terminal. The Jupyter Lab Extension manager will not work because the version numbers cannot be fixed yet.
@@ -51,7 +46,7 @@ pip install ipywidgets==7.4.2
 pip install plotly==3.10.0
 ```
 
-## 3) start edaviz in Jupyter
+### 3) start edaviz in Jupyter
 From the terminal, start your Jupyter Notebook (or Jupyter Lab):
 ```
 jupyter notebook
@@ -65,12 +60,12 @@ df
 ```
 
 
-## 4) enter your license
+### 4) enter your license
 If everything works fine, edaviz asks you for a license.
 Please enter the license key which you received from us.
 
 
-# Usage
+## Usage
 
 First, start your Jupyter Notebook from the terminal:
 ```
@@ -85,12 +80,12 @@ df
 ```
 > Info: edaviz only works within Jupyter Notebook or Jupyter Lab. Currently, you cannot use it on other platforms, e.g. via the command line or in PyCharm etc
 
-# API
+## API
 
 You will be able to discover most of the library functions via the `eda.plot(df)` widget.
 If you want to dig deeper into our docs, you can find them [here](https://github.com/tkrabel/edaviz/blob/master/docs/api.md).
 
-## 5 most important functions:
+### 5 most important functions:
 - The best API is no API. Just execute `df` (or the name of your pandas dataframe object) and see what happens. If you imported edaviz, it will add some interactive visualizations to your pandas dataframe
 - `eda.plot(df)` shows an overview widget of a given dataframe. This is the main entry point of the edaviz library
 - `eda.plot(df, x)` shows a suitable univariate summary of a given column, e.g. `eda.plot(df, "Age")`
