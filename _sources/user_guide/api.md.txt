@@ -27,7 +27,7 @@ eda.plot(df, "Sex", "Survived")    # shows a bivariate plot of "Survived" agains
 
 ### eda.patterns(df)
 
-Shows an interactive heatmap comparing all columns with each other. It is like a correlation matrix, but uses a [predictive power score](#introducing-the-predictive-power-score-pps) instead.
+Shows an interactive heatmap comparing all columns with each other. It is like a correlation matrix, but uses a [predictive power score](predictive_power_score.md) instead.
 
 ##### Example
 
